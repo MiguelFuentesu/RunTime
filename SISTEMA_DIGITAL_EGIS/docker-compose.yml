@@ -59,7 +59,7 @@ services:
     image: quay.io/keycloak/keycloak:24.0
     container_name: egis_keycloak
     restart: unless-stopped
-    command: start-dev --import-realm
+    command: start-dev
     environment:
       KC_DB: postgres
       KC_DB_URL: jdbc:postgresql://postgres:5432/egis_db
@@ -69,8 +69,6 @@ services:
       KEYCLOAK_ADMIN_PASSWORD: ${KEYCLOAK_ADMIN_PASSWORD}
       KC_HOSTNAME_STRICT: "false"
       KC_HTTP_ENABLED: "true"
-    volumes:
-      - ./scripts/keycloak-realm.json:/opt/keycloak/data/import/realm.json
     ports:
       - "8080:8080"
     depends_on:
