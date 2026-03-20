@@ -1,0 +1,21 @@
+# Entorno
+.env
+.env.local
+.env.production
+
+# Node
+node_modules/
+.next/
+dist/
+build/
+
+# Docker
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/settings.json
+.idea/

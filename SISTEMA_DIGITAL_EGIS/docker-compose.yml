@@ -1,0 +1,244 @@
+version: "3.9"
+
+# ============================================================
+# SISTEMA DIGITAL EGIS — Stack completo local
+# Requisitos: Docker Desktop, NVIDIA GPU, 16GB RAM
+# Levantar: docker compose up -d
+# ============================================================
+
+services:
+
+  # ----------------------------------------------------------
+  # BASE DE DATOS
+  # ----------------------------------------------------------
+  postgres:
+    image: postgres:16-alpine
+    container_name: egis_postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: egis_user
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: egis_db
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./scripts/init_db.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U egis_user -d egis_db"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - egis_net
+
+  # ----------------------------------------------------------
+  # CACHE / SESIONES
+  # ----------------------------------------------------------
+  redis:
+    image: redis:7-alpine
+    container_name: egis_redis
+    restart: unless-stopped
+    command: redis-server --requirepass ${REDIS_PASSWORD} --appendonly yes
+    volumes:
+      - redis_data:/data
+    ports:
+      - "6379:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "--no-auth-warning", "-a", "${REDIS_PASSWORD}", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - egis_net
+
+  # ----------------------------------------------------------
+  # AUTENTICACIÓN — Keycloak (RBAC 9 roles)
+  # ----------------------------------------------------------
+  keycloak:
+    image: quay.io/keycloak/keycloak:24.0
+    container_name: egis_keycloak
+    restart: unless-stopped
+    command: start-dev --import-realm
+    environment:
+      KC_DB: postgres
+      KC_DB_URL: jdbc:postgresql://postgres:5432/egis_db
+      KC_DB_USERNAME: egis_user
+      KC_DB_PASSWORD: ${POSTGRES_PASSWORD}
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: ${KEYCLOAK_ADMIN_PASSWORD}
+      KC_HOSTNAME_STRICT: "false"
+      KC_HTTP_ENABLED: "true"
+    volumes:
+      - ./scripts/keycloak-realm.json:/opt/keycloak/data/import/realm.json
+    ports:
+      - "8080:8080"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - egis_net
+
+  # ----------------------------------------------------------
+  # VECTOR STORE — ChromaDB (RAG de 23 documentos)
+  # ----------------------------------------------------------
+  chromadb:
+    image: chromadb/chroma:latest
+    container_name: egis_chromadb
+    restart: unless-stopped
+    environment:
+      CHROMA_SERVER_AUTH_CREDENTIALS: ${CHROMA_TOKEN}
+      CHROMA_SERVER_AUTH_PROVIDER: chromadb.auth.token.TokenAuthServerProvider
+      CHROMA_SERVER_AUTH_CREDENTIALS_PROVIDER: chromadb.auth.token.TokenConfigServerAuthCredentialsProvider
+    volumes:
+      - chroma_data:/chroma/chroma
+    ports:
+      - "8001:8000"
+    networks:
+      - egis_net
+
+  # ----------------------------------------------------------
+  # OLLAMA — Modelos locales con GPU NVIDIA
+  # ARIA usa: qwen3:4b
+  # Intranet usa: qwen3:14b
+  # ----------------------------------------------------------
+  ollama:
+    image: ollama/ollama:latest
+    container_name: egis_ollama
+    restart: unless-stopped
+    environment:
+      OLLAMA_KEEP_ALIVE: "24h"
+      OLLAMA_NUM_PARALLEL: 2
+    volumes:
+      - ollama_data:/root/.ollama
+    ports:
+      - "11434:11434"
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    networks:
+      - egis_net
+
+  # ----------------------------------------------------------
+  # BACKEND API — Fastify + Prisma
+  # ----------------------------------------------------------
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: egis_backend
+    restart: unless-stopped
+    environment:
+      DATABASE_URL: postgresql://egis_user:${POSTGRES_PASSWORD}@postgres:5432/egis_db
+      REDIS_URL: redis://:${REDIS_PASSWORD}@redis:6379
+      KEYCLOAK_URL: http://keycloak:8080
+      KEYCLOAK_REALM: egis
+      KEYCLOAK_CLIENT_ID: egis-backend
+      KEYCLOAK_CLIENT_SECRET: ${KEYCLOAK_CLIENT_SECRET}
+      CHROMA_URL: http://chromadb:8000
+      CHROMA_TOKEN: ${CHROMA_TOKEN}
+      OLLAMA_URL: http://ollama:11434
+      OLLAMA_MODEL_ARIA: qwen3:4b
+      OLLAMA_MODEL_INTERNAL: qwen3:14b
+      JWT_SECRET: ${JWT_SECRET}
+      NODE_ENV: development
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
+    ports:
+      - "3001:3001"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    networks:
+      - egis_net
+
+  # ----------------------------------------------------------
+  # INTRANET — Next.js 14 (equipo EGIS)
+  # ----------------------------------------------------------
+  intranet:
+    build:
+      context: ./apps/intranet
+      dockerfile: Dockerfile
+    container_name: egis_intranet
+    restart: unless-stopped
+    environment:
+      NEXT_PUBLIC_API_URL: http://localhost:3001
+      NEXT_PUBLIC_KEYCLOAK_URL: http://localhost:8080
+      NEXT_PUBLIC_KEYCLOAK_REALM: egis
+      NEXT_PUBLIC_KEYCLOAK_CLIENT_ID: egis-intranet
+      NODE_ENV: development
+    volumes:
+      - ./apps/intranet:/app
+      - /app/node_modules
+      - /app/.next
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    networks:
+      - egis_net
+
+  # ----------------------------------------------------------
+  # ARIA — Chat público (Next.js standalone)
+  # ----------------------------------------------------------
+  aria:
+    build:
+      context: ./apps/aria
+      dockerfile: Dockerfile
+    container_name: egis_aria
+    restart: unless-stopped
+    environment:
+      NEXT_PUBLIC_API_URL: http://localhost:3001
+      NODE_ENV: development
+    volumes:
+      - ./apps/aria:/app
+      - /app/node_modules
+      - /app/.next
+    ports:
+      - "3002:3002"
+    depends_on:
+      - backend
+      - ollama
+    networks:
+      - egis_net
+
+  # ----------------------------------------------------------
+  # PROXY REVERSO — Nginx
+  # ----------------------------------------------------------
+  nginx:
+    image: nginx:alpine
+    container_name: egis_nginx
+    restart: unless-stopped
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+    ports:
+      - "80:80"
+    depends_on:
+      - intranet
+      - aria
+      - backend
+    networks:
+      - egis_net
+
+# ----------------------------------------------------------
+# VOLÚMENES PERSISTENTES
+# ----------------------------------------------------------
+volumes:
+  postgres_data:
+  redis_data:
+  chroma_data:
+  ollama_data:
+
+# ----------------------------------------------------------
+# RED INTERNA
+# ----------------------------------------------------------
+networks:
+  egis_net:
+    driver: bridge

@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ARIA · Orientación habitacional gratuita</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;1,9..144,300;1,9..144,400&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════════════
+   SISTEMA DIGITAL EGIS — Design System v1.0
+   Documento de referencia: EGIS_Design_System.md
+   Todos los tokens aquí son la norma del proyecto.
+═══════════════════════════════════════════════════ */
+:root {
+  /* — Paleta principal — */
+  --verde:          #3D7A5C;  /* Esperanza, calma, naturaleza chilena */
+  --verde-claro:    #E8F4EE;  /* Fondos suaves, hover estados */
+  --verde-medio:    #6BA888;  /* Elementos secundarios verdes */
+  --verde-oscuro:   #1E4D38;  /* Autoridad cálida, header, footer */
+  --verde-profundo: #102D21;  /* Texto sobre verde */
+
+  --tierra:         #C17F4A;  /* Acción, calidez, CTA principal */
+  --tierra-claro:   #F5E6D3;  /* Fondo hover tierra */
+  --tierra-medio:   #E0A876;  /* Estados hover */
+  --tierra-oscuro:  #8A5530;  /* Texto sobre tierra claro */
+
+  --crema:          #FAF6F0;  /* Fondo principal — nunca blanco puro */
+  --crema-medio:    #F0E8DC;  /* Separadores, fondos de cards */
+  --crema-oscuro:   #DDD0BF;  /* Bordes, líneas */
+
+  /* — Texto — */
+  --texto:          #2C2420;  /* Cuerpo principal */
+  --texto-suave:    #6B5C52;  /* Secundario */
+  --texto-tenue:    #A89088;  /* Terciario, placeholders */
+
+  /* — Semánticos — */
+  --ok:             #2D7A4F;
+  --alerta:         #C17F4A;  /* Usa tierra para alertas — coherencia */
+
+  /* — Tipografía — */
+  --font-display:   'Fraunces', Georgia, serif;
+  --font-body:      'DM Sans', system-ui, sans-serif;
+
+  /* — Espaciado — */
+  --sp-xs:   6px;
+  --sp-sm:  12px;
+  --sp-md:  20px;
+  --sp-lg:  32px;
+  --sp-xl:  56px;
+
+  /* — Radios — */
+  --r-sm:   8px;
+  --r-md:  14px;
+  --r-lg:  20px;
+  --r-xl:  28px;
+  --r-full: 9999px;
+
+  /* — Sombras — */
+  --shadow-sm: 0 2px 8px rgba(44,36,32,.07);
+  --shadow-md: 0 6px 24px rgba(44,36,32,.10);
+  --shadow-lg: 0 16px 48px rgba(44,36,32,.13);
+}
+
+/* ── RESET ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-body);
+  background: var(--crema);
+  color: var(--texto);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; display: block; }
+button { cursor: pointer; font-family: var(--font-body); border: none; background: none; }
+a { color: inherit; text-decoration: none; }
+
+/* ── UTILIDADES ── */
+.container { max-width: 440px; margin: 0 auto; padding: 0 20px; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); }
+
+/* ══════════════════════════════════════
+   BARRA SUPERIOR
+══════════════════════════════════════ */
+.topbar {
+  background: var(--verde-oscuro);
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 12px rgba(0,0,0,.2);
+}
+.topbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.logo-mark {
+  width: 34px;
+  height: 34px;
+  background: var(--tierra);
+  border-radius: var(--r-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 16px;
+  color: #fff;
+  font-weight: 300;
+  flex-shrink: 0;
+}
+.topbar-name {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: 15px;
+  color: rgba(255,255,255,.9);
+  letter-spacing: .3px;
+}
+.topbar-name span {
+  font-size: 10px;
+  display: block;
+  color: rgba(255,255,255,.5);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-family: var(--font-body);
+  margin-top: -1px;
+}
+.topbar-contact {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255,255,255,.1);
+  border: 1px solid rgba(255,255,255,.15);
+  border-radius: var(--r-full);
+  padding: 7px 14px;
+  font-size: 12px;
+  color: rgba(255,255,255,.85);
+  transition: background .2s;
+}
+.topbar-contact:hover { background: rgba(255,255,255,.18); }
+.topbar-contact svg { width: 13px; height: 13px; stroke: rgba(255,255,255,.7); fill: none; stroke-width: 2; stroke-linecap: round; }
+
+/* ══════════════════════════════════════
+   HERO — máximo 15 segundos de lectura
+══════════════════════════════════════ */
+.hero {
+  background: var(--verde-oscuro);
+  padding: 40px 20px 0;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -80px; right: -80px;
+  width: 300px; height: 300px;
+  border-radius: 50%;
+  background: var(--tierra);
+  opacity: .07;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -1px; left: 0; right: 0;
+  height: 40px;
+  background: var(--crema);
+  border-radius: 40px 40px 0 0;
+}
+.hero-inner { position: relative; z-index: 1; }
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(193,127,74,.2);
+  border: 1px solid rgba(193,127,74,.35);
+  border-radius: var(--r-full);
+  padding: 5px 12px;
+  font-size: 11px;
+  color: var(--tierra-medio);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+.hero-badge::before {
+  content: '';
+  width: 6px; height: 6px;
+  background: var(--tierra-medio);
+  border-radius: 50%;
+  animation: pulse 2s ease infinite;
+}
+@keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.5;transform:scale(.8)} }
+
+.hero h1 {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: 32px;
+  line-height: 1.2;
+  color: #fff;
+  margin-bottom: 16px;
+}
+.hero h1 em {
+  font-style: italic;
+  color: var(--tierra-medio);
+}
+.hero-sub {
+  font-size: 15px;
+  color: rgba(255,255,255,.7);
+  line-height: 1.65;
+  margin-bottom: 28px;
+  max-width: 340px;
+}
+.hero-sub strong { color: rgba(255,255,255,.9); font-weight: 500; }
+
+/* Ilustración casa — SVG inline */
+.hero-illustration {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0;
+  padding-top: 8px;
+}
+
+/* ══════════════════════════════════════
+   ACCESO RÁPIDO — La regla de los 3
+   No más de 5 opciones. Lenguaje humano.
+══════════════════════════════════════ */
+.quick-section {
+  background: var(--crema);
+  padding: 32px 20px 8px;
+}
+.section-eyebrow {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--texto-tenue);
+  text-align: center;
+  margin-bottom: 18px;
+  font-weight: 400;
+}
+.quick-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.quick-card {
+  background: #fff;
+  border: 1.5px solid var(--crema-oscuro);
+  border-radius: var(--r-lg);
+  padding: 18px 14px 16px;
+  text-align: left;
+  transition: all .22s cubic-bezier(.4,0,.2,1);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  -webkit-tap-highlight-color: transparent;
+}
+.quick-card:hover, .quick-card:focus-visible {
+  border-color: var(--tierra);
+  background: var(--tierra-claro);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+  outline: none;
+}
+.quick-card:active { transform: translateY(-1px); }
+.quick-icon {
+  width: 40px; height: 40px;
+  border-radius: var(--r-md);
+  background: var(--verde-claro);
+  display: flex; align-items: center; justify-content: center;
+}
+.quick-icon svg { width: 20px; height: 20px; stroke: var(--verde-oscuro); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.quick-card.is-tierra .quick-icon { background: var(--tierra-claro); }
+.quick-card.is-tierra .quick-icon svg { stroke: var(--tierra-oscuro); }
+.quick-card h3 {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--texto);
+  line-height: 1.3;
+}
+.quick-card p {
+  font-size: 12px;
+  color: var(--texto-suave);
+  line-height: 1.4;
+}
+
+/* Card ancha — chat principal */
+.quick-card-wide {
+  background: var(--verde-oscuro);
+  border: none;
+  border-radius: var(--r-lg);
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  transition: all .22s;
+  -webkit-tap-highlight-color: transparent;
+  margin-bottom: 10px;
+}
+.quick-card-wide:hover {
+  background: var(--verde);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+.quick-card-wide .wicon {
+  width: 48px; height: 48px; flex-shrink: 0;
+  background: rgba(255,255,255,.12);
+  border-radius: var(--r-md);
+  display: flex; align-items: center; justify-content: center;
+}
+.quick-card-wide .wicon svg { width: 24px; height: 24px; stroke: #fff; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.quick-card-wide h3 { font-size: 16px; font-weight: 500; color: #fff; }
+.quick-card-wide p { font-size: 13px; color: rgba(255,255,255,.65); line-height: 1.4; margin-top: 2px; }
+.quick-card-wide .arrow {
+  margin-left: auto; flex-shrink: 0;
+  width: 32px; height: 32px;
+  background: rgba(255,255,255,.15);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+}
+.quick-card-wide .arrow svg { width: 14px; height: 14px; stroke: #fff; fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+
+/* ══════════════════════════════════════
+   SECCIÓN CHAT ARIA
+══════════════════════════════════════ */
+.chat-section {
+  padding: 8px 20px 24px;
+  background: var(--crema);
+}
+.chat-frame {
+  background: #fff;
+  border-radius: var(--r-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--crema-oscuro);
+}
+.chat-topbar {
+  background: var(--verde-oscuro);
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.chat-avatar {
+  width: 38px; height: 38px;
+  background: var(--tierra);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 16px;
+  color: #fff;
+  font-weight: 300;
+  flex-shrink: 0;
+}
+.chat-info h4 { font-size: 14px; font-weight: 500; color: #fff; }
+.chat-info p {
+  font-size: 11px; color: rgba(255,255,255,.55); margin-top: 1px;
+  display: flex; align-items: center; gap: 4px;
+}
+.online { width: 6px; height: 6px; background: #5DD68A; border-radius: 50%; animation: pulse 2.5s ease infinite; }
+.chat-messages {
+  padding: 16px;
+  min-height: 220px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: var(--crema);
+}
+.bubble-wrap { display: flex; gap: 8px; align-items: flex-end; }
+.bubble-wrap.user { flex-direction: row-reverse; }
+.b-avatar {
+  width: 28px; height: 28px; border-radius: 50%; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 10px; font-family: var(--font-display); font-style: italic; color: #fff;
+}
+.b-aria { background: var(--verde-oscuro); }
+.b-user { background: var(--tierra); }
+.bubble {
+  max-width: 82%;
+  padding: 11px 15px;
+  border-radius: 18px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+.bubble-wrap.aria .bubble {
+  background: #fff;
+  color: var(--texto);
+  border-bottom-left-radius: 4px;
+  box-shadow: var(--shadow-sm);
+}
+.bubble-wrap.user .bubble {
+  background: var(--tierra);
+  color: #fff;
+  border-bottom-right-radius: 4px;
+}
+.bubble strong { font-weight: 500; }
+.bubble-disclaimer {
+  margin-top: 10px;
+  font-size: 11px;
+  color: var(--tierra-oscuro);
+  background: var(--tierra-claro);
+  border: 1px solid rgba(193,127,74,.25);
+  border-radius: var(--r-sm);
+  padding: 7px 10px;
+  line-height: 1.5;
+}
+.typing-bubble .bubble {
+  padding: 13px 16px;
+}
+.typing-dots { display: flex; gap: 4px; align-items: center; }
+.typing-dots span {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--texto-tenue);
+  animation: tdot .7s ease infinite;
+}
+.typing-dots span:nth-child(2) { animation-delay: .15s; }
+.typing-dots span:nth-child(3) { animation-delay: .3s; }
+@keyframes tdot { 0%,100%{transform:translateY(0);opacity:.5} 50%{transform:translateY(-5px);opacity:1} }
+
+.chat-input-bar {
+  background: #fff;
+  border-top: 1px solid var(--crema-oscuro);
+  padding: 12px 14px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.chat-input-bar input {
+  flex: 1;
+  background: var(--crema);
+  border: 1.5px solid var(--crema-oscuro);
+  border-radius: var(--r-md);
+  padding: 11px 14px;
+  font-size: 14px;
+  font-family: var(--font-body);
+  color: var(--texto);
+  outline: none;
+  transition: border-color .2s;
+  -webkit-appearance: none;
+}
+.chat-input-bar input:focus { border-color: var(--tierra); }
+.chat-input-bar input::placeholder { color: var(--texto-tenue); }
+.send-btn {
+  width: 42px; height: 42px;
+  background: var(--tierra);
+  border-radius: var(--r-md);
+  display: flex; align-items: center; justify-content: center;
+  transition: all .2s;
+  flex-shrink: 0;
+}
+.send-btn:hover { background: var(--tierra-oscuro); transform: scale(1.05); }
+.send-btn:active { transform: scale(.98); }
+.send-btn svg { width: 16px; height: 16px; stroke: #fff; fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+
+/* ══════════════════════════════════════
+   PROGRAMAS — Cards informativas
+══════════════════════════════════════ */
+.programs-section {
+  padding: 32px 20px;
+  background: var(--crema-medio);
+}
+.programs-section h2 {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: 22px;
+  color: var(--verde-oscuro);
+  margin-bottom: 6px;
+}
+.programs-section h2 em { font-style: italic; color: var(--tierra); }
+.programs-section > p {
+  font-size: 13px;
+  color: var(--texto-suave);
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+.program-card {
+  background: #fff;
+  border-radius: var(--r-lg);
+  padding: 18px;
+  margin-bottom: 10px;
+  border: 1px solid var(--crema-oscuro);
+  transition: box-shadow .2s;
+}
+.program-card:hover { box-shadow: var(--shadow-md); }
+.program-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+.program-badge {
+  padding: 3px 10px;
+  border-radius: var(--r-full);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: .8px;
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+.badge-verde { background: var(--verde-claro); color: var(--verde-oscuro); }
+.badge-tierra { background: var(--tierra-claro); color: var(--tierra-oscuro); }
+.program-card h3 { font-size: 14px; font-weight: 500; color: var(--texto); }
+.program-card > p { font-size: 13px; color: var(--texto-suave); line-height: 1.55; margin-bottom: 12px; }
+.program-tag-row { display: flex; flex-wrap: wrap; gap: 6px; }
+.ptag {
+  font-size: 11px;
+  background: var(--crema);
+  border: 1px solid var(--crema-oscuro);
+  border-radius: var(--r-full);
+  padding: 3px 9px;
+  color: var(--texto-suave);
+}
+.ptag.highlight { background: var(--verde-claro); border-color: var(--verde-medio); color: var(--verde-oscuro); font-weight: 500; }
+
+/* ══════════════════════════════════════
+   SECCIÓN CONFIANZA — EGIS
+══════════════════════════════════════ */
+.trust-section {
+  padding: 32px 20px;
+  background: var(--verde-oscuro);
+  position: relative;
+  overflow: hidden;
+}
+.trust-section::before {
+  content: '';
+  position: absolute;
+  top: -60px; right: -60px;
+  width: 200px; height: 200px;
+  background: var(--tierra);
+  border-radius: 50%;
+  opacity: .08;
+}
+.trust-section h2 {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: 20px;
+  color: #fff;
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+.trust-section h2 em { font-style: italic; color: var(--tierra-medio); }
+.trust-section > p { font-size: 13px; color: rgba(255,255,255,.6); margin-bottom: 24px; line-height: 1.6; }
+.trust-items { display: flex; flex-direction: column; gap: 14px; }
+.trust-item {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+.trust-item-icon {
+  width: 38px; height: 38px; flex-shrink: 0;
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: var(--r-md);
+  display: flex; align-items: center; justify-content: center;
+}
+.trust-item-icon svg { width: 18px; height: 18px; stroke: var(--tierra-medio); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.trust-item h4 { font-size: 13px; font-weight: 500; color: #fff; margin-bottom: 2px; }
+.trust-item p { font-size: 12px; color: rgba(255,255,255,.55); line-height: 1.5; }
+
+/* ══════════════════════════════════════
+   FOOTER
+══════════════════════════════════════ */
+.footer {
+  background: var(--verde-profundo);
+  padding: 28px 20px 40px;
+}
+.footer-logo { display: flex; align-items: center; gap: 8px; margin-bottom: 14px; }
+.footer-logo .logo-mark { width: 28px; height: 28px; font-size: 13px; border-radius: 6px; }
+.footer-logo span { font-family: var(--font-display); font-size: 14px; color: rgba(255,255,255,.7); font-weight: 300; }
+.footer p { font-size: 12px; color: rgba(255,255,255,.4); line-height: 1.6; margin-bottom: 18px; }
+.footer-legal {
+  border-top: 1px solid rgba(255,255,255,.08);
+  padding-top: 16px;
+  font-size: 11px;
+  color: rgba(255,255,255,.3);
+  line-height: 1.6;
+}
+.footer-legal a { color: rgba(255,255,255,.45); text-decoration: underline; }
+
+/* ══════════════════════════════════════
+   ANIMACIONES DE ENTRADA
+══════════════════════════════════════ */
+@keyframes fadeUp {
+  from { opacity:0; transform:translateY(16px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+.fade-up { animation: fadeUp .5s cubic-bezier(.4,0,.2,1) both; }
+.delay-1 { animation-delay: .08s; }
+.delay-2 { animation-delay: .16s; }
+.delay-3 { animation-delay: .24s; }
+.delay-4 { animation-delay: .32s; }
+.delay-5 { animation-delay: .40s; }
+
+/* ══════════════════════════════════════
+   RESPONSIVE — max 440px centrado
+══════════════════════════════════════ */
+@media (min-width: 460px) {
+  body { background: #e8e2da; }
+  .page-wrap {
+    max-width: 440px;
+    margin: 0 auto;
+    background: var(--crema);
+    min-height: 100vh;
+    box-shadow: 0 0 60px rgba(0,0,0,.15);
+  }
+}
+</style>
+</head>
+<body>
+<div class="page-wrap">
+
+<!-- ── TOPBAR ── -->
+<nav class="topbar">
+  <div class="topbar-brand">
+    <div class="logo-mark">A</div>
+    <div class="topbar-name">
+      ARIA
+      <span>por tu EGIS · MINVU</span>
+    </div>
+  </div>
+  <a href="tel:+56222345678" class="topbar-contact" aria-label="Llamar a la EGIS">
+    <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8a19.79 19.79 0 01-3.07-8.67A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92"/></svg>
+    Llamar
+  </a>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge fade-up">Servicio gratuito · EGIS acreditada MINVU</div>
+    <h1 class="fade-up delay-1">Mejora tu <em>vivienda</em><br>con apoyo oficial</h1>
+    <p class="hero-sub fade-up delay-2">
+      Te acompañamos en todo el proceso de <strong>reparación, ampliación o mejora</strong> de tu hogar con subsidios del MINVU. Sin costo, sin filas, con personas reales.
+    </p>
+    <!-- Ilustración SVG simple de casa -->
+    <div class="hero-illustration fade-up delay-3">
+      <svg width="200" height="110" viewBox="0 0 200 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Casa base -->
+        <rect x="42" y="55" width="116" height="60" rx="3" fill="rgba(255,255,255,.12)" stroke="rgba(255,255,255,.3)" stroke-width="1.5"/>
+        <!-- Techo -->
+        <path d="M30 58 L100 18 L170 58" stroke="var(--tierra-medio)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        <!-- Puerta -->
+        <rect x="84" y="80" width="22" height="35" rx="2" fill="rgba(255,255,255,.18)" stroke="rgba(255,255,255,.3)" stroke-width="1"/>
+        <!-- Ventanas -->
+        <rect x="50" y="66" width="20" height="18" rx="2" fill="rgba(255,255,255,.12)" stroke="rgba(255,255,255,.25)" stroke-width="1"/>
+        <rect x="130" y="66" width="20" height="18" rx="2" fill="rgba(255,255,255,.12)" stroke="rgba(255,255,255,.25)" stroke-width="1"/>
+        <!-- Estrella / brillo mejora -->
+        <circle cx="158" cy="22" r="4" fill="var(--tierra-medio)" opacity=".8"/>
+        <circle cx="168" cy="30" r="2.5" fill="var(--tierra-medio)" opacity=".5"/>
+        <circle cx="150" cy="34" r="2" fill="var(--tierra-medio)" opacity=".4"/>
+        <!-- Herramienta (mejoramiento) -->
+        <path d="M28 85 L22 92 M22 92 L19 95 M28 85 L31 88" stroke="var(--tierra-medio)" stroke-width="1.8" stroke-linecap="round" opacity=".7"/>
+        <circle cx="31" cy="82" r="4" stroke="var(--tierra-medio)" stroke-width="1.5" fill="none" opacity=".7"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ── ACCESO RÁPIDO ── -->
+<section class="quick-section">
+  <p class="section-eyebrow">¿En qué te ayudamos?</p>
+
+  <!-- CTA principal — hablar con ARIA -->
+  <button class="quick-card-wide fade-up" onclick="activarChat()" aria-label="Chatear con ARIA">
+    <div class="wicon">
+      <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+    </div>
+    <div>
+      <h3>Hablar con ARIA</h3>
+      <p>Cuéntame tu caso y te oriento ahora</p>
+    </div>
+    <div class="arrow">
+      <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+    </div>
+  </button>
+
+  <!-- Grid de opciones -->
+  <div class="quick-grid">
+    <button class="quick-card fade-up delay-1" onclick="enviarConsulta('Quiero reparar mi casa')">
+      <div class="quick-icon">
+        <svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+      </div>
+      <h3>Reparar mi casa</h3>
+      <p>DS27 · subsidio hasta 450 UF</p>
+    </button>
+
+    <button class="quick-card fade-up delay-2" onclick="enviarConsulta('Quiero ampliar mi casa')">
+      <div class="quick-icon">
+        <svg viewBox="0 0 24 24"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+      </div>
+      <h3>Ampliar mi casa</h3>
+      <p>DS27 · agrega espacio</p>
+    </button>
+
+    <button class="quick-card is-tierra fade-up delay-3" onclick="enviarConsulta('Quiero mejorar la calefacción o aislación de mi casa')">
+      <div class="quick-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 2v6M12 18v4M4.93 4.93l4.24 4.24M14.83 14.83l4.24 4.24M2 12h6M16 12h6M4.93 19.07l4.24-4.24M14.83 9.17l4.24-4.24"/></svg>
+      </div>
+      <h3>Eficiencia energética</h3>
+      <p>Aislación · paneles solares</p>
+    </button>
+
+    <button class="quick-card fade-up delay-4" onclick="enviarConsulta('Quiero saber el estado de mi expediente o proceso con la EGIS')">
+      <div class="quick-icon">
+        <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+      </div>
+      <h3>Mi expediente</h3>
+      <p>Estado de mi proceso</p>
+    </button>
+  </div>
+</section>
+
+<!-- ── CHAT ARIA ── -->
+<section class="chat-section" id="chatSection">
+  <div class="chat-frame">
+    <div class="chat-topbar">
+      <div class="chat-avatar">A</div>
+      <div class="chat-info">
+        <h4>ARIA · Asistente EGIS</h4>
+        <p><span class="online"></span>Disponible · Responde en segundos</p>
+      </div>
+    </div>
+    <div class="chat-messages" id="chatMessages">
+      <div class="bubble-wrap aria">
+        <div class="b-avatar b-aria">A</div>
+        <div class="bubble">
+          Hola 👋 Soy ARIA, el asistente de tu EGIS. Estoy aquí para orientarte sobre los programas de <strong>mejoramiento habitacional</strong> del MINVU.<br><br>¿En qué te puedo ayudar hoy?
+        </div>
+      </div>
+    </div>
+    <div class="chat-input-bar">
+      <input
+        type="text"
+        id="chatInput"
+        placeholder="Escribe tu consulta..."
+        autocomplete="off"
+        onkeypress="if(event.key==='Enter')enviarDesdeInput()"
+      >
+      <button class="send-btn" onclick="enviarDesdeInput()" aria-label="Enviar mensaje">
+        <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ── PROGRAMAS ── -->
+<section class="programs-section">
+  <h2>Programas para <em>mejorar tu hogar</em></h2>
+  <p>Subsidios verificados del MINVU para propietarios de vivienda. Sin costo para ti — la EGIS te acompaña en todo el proceso.</p>
+
+  <div class="program-card">
+    <div class="program-header">
+      <span class="program-badge badge-verde">DS27</span>
+      <h3>Reparación y Mejoramiento</h3>
+    </div>
+    <p>Subsidio para reparar, ampliar o mejorar tu vivienda existente. Incluye reparación de techos, muros, pisos y adaptaciones para personas con movilidad reducida.</p>
+    <div class="program-tag-row">
+      <span class="ptag highlight">Hasta 450 UF</span>
+      <span class="ptag">Propietarios</span>
+      <span class="ptag">Postulación abr–may 2026</span>
+    </div>
+  </div>
+
+  <div class="program-card">
+    <div class="program-header">
+      <span class="program-badge badge-tierra">DS27</span>
+      <h3>Eficiencia Energética</h3>
+    </div>
+    <p>Mejora el aislamiento térmico de tu vivienda o instala paneles solares. Reduce el gasto en calefacción y agua caliente.</p>
+    <div class="program-tag-row">
+      <span class="ptag highlight">Subsidio disponible</span>
+      <span class="ptag">Aislación · Solar</span>
+      <span class="ptag">Adultos mayores prioritarios</span>
+    </div>
+  </div>
+
+  <div class="program-card">
+    <div class="program-header">
+      <span class="program-badge badge-verde">DS52</span>
+      <h3>Clase Media · Mejoramiento</h3>
+    </div>
+    <p>Para propietarios que quieren ampliar o mejorar su vivienda y tienen capacidad de ahorro complementario.</p>
+    <div class="program-tag-row">
+      <span class="ptag highlight">Ampliación</span>
+      <span class="ptag">Con ahorro propio</span>
+      <span class="ptag">Sector medio</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── CONFIANZA ── -->
+<section class="trust-section">
+  <h2>Somos una EGIS <em>acreditada</em></h2>
+  <p>Entidad Patrocinante con convenio oficial MINVU. Tu proceso está respaldado por el Estado.</p>
+  <div class="trust-items">
+    <div class="trust-item">
+      <div class="trust-item-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <div>
+        <h4>Servicio 100% gratuito</h4>
+        <p>Por ley, la EGIS no puede cobrar ningún valor a los beneficiarios por el acompañamiento en el proceso habitacional.</p>
+      </div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-item-icon">
+        <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+      </div>
+      <div>
+        <h4>Profesionales reales</h4>
+        <p>Arquitectos, asistentes sociales y abogados te acompañan en cada etapa. ARIA es solo el primer contacto.</p>
+      </div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-item-icon">
+        <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+      </div>
+      <div>
+        <h4>Tus datos protegidos</h4>
+        <p>Trabajamos bajo la Ley 21.719 de Protección de Datos. Nunca compartimos tu información sin tu consentimiento.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer class="footer">
+  <div class="footer-logo">
+    <div class="logo-mark">A</div>
+    <span>ARIA · Sistema Digital EGIS</span>
+  </div>
+  <p>Orientación habitacional gratuita para propietarios de vivienda. Entidad Patrocinante acreditada ante el MINVU de Chile.</p>
+  <div class="footer-legal">
+    <p>⚠️ La información entregada por ARIA es orientativa. Solo el SERVIU puede certificar elegibilidad para subsidios habitacionales. Versión 1.0 · Marzo 2026</p>
+    <br>
+    <a href="#">Política de privacidad</a> · <a href="#">Términos de uso</a> · <a href="#">SERVIU Regional</a>
+  </div>
+</footer>
+
+</div><!-- /.page-wrap -->
+
+<script>
+// ══════════════════════════════════════
+// Chat interactivo — ARIA demo
+// En producción conecta con backend/aria-chat.js → Qwen3:4b
+// ══════════════════════════════════════
+const respuestas = {
+  reparar: `Entiendo, quieres reparar tu casa. El programa indicado es el <strong>DS27 de Mejoramiento</strong>.\n\nCubre reparaciones de techo, muros, piso, baño y más. La EGIS te ayuda a armar todo el proyecto sin costo.\n\n¿La vivienda está a tu nombre (eres dueño/a)?<div class="bubble-disclaimer">⚠️ Información orientativa. Solo el SERVIU puede confirmar tu elegibilidad. Verifica en minvu.gob.cl</div>`,
+  ampliar: `Para ampliar tu vivienda existe el <strong>DS27 línea Ampliación</strong>. Puedes sumar piezas, baños o una cocina a tu casa actual.\n\n¿Sabes si tienes el RSH al día? Eso es lo primero que necesitamos revisar juntos.`,
+  energia: `Excelente opción para bajar el costo de la calefacción. El <strong>DS27 línea Eficiencia Energética</strong> cubre aislación de muros, cielo y piso, y también paneles solares.\n\nLas personas mayores de 60 años tienen puntaje adicional en la postulación. ¿Cuántos años tienes?`,
+  expediente: `Para revisar tu expediente necesito que hables directamente con tu asistente social de la EGIS.\n\n📞 Puedes llamarnos al número que aparece arriba o venir a nuestra oficina. Si ya tienes número de caso, también puedo orientarte.`,
+  default: `Gracias por escribir. Para orientarte mejor, cuéntame: <strong>¿qué parte de tu vivienda necesitas mejorar?</strong>\n\nPuede ser el techo, los muros, el baño, agregar una pieza, la calefacción u otra cosa.`,
+};
+
+function obtenerRespuesta(texto) {
+  const t = texto.toLowerCase();
+  if (t.includes('repar') || t.includes('techo') || t.includes('muro') || t.includes('grieta')) return respuestas.reparar;
+  if (t.includes('ampl') || t.includes('pieza') || t.includes('cuarto') || t.includes('espacio')) return respuestas.ampliar;
+  if (t.includes('calefac') || t.includes('frío') || t.includes('frio') || t.includes('aislac') || t.includes('solar') || t.includes('energía') || t.includes('energia')) return respuestas.energia;
+  if (t.includes('expediente') || t.includes('estado') || t.includes('proceso') || t.includes('caso')) return respuestas.expediente;
+  return respuestas.default;
+}
+
+function agregarMensaje(texto, tipo) {
+  const msgs = document.getElementById('chatMessages');
+  const wrap = document.createElement('div');
+  wrap.className = `bubble-wrap ${tipo} fade-up`;
+  const inicial = tipo === 'aria' ? 'A' : 'U';
+  const avatarClass = tipo === 'aria' ? 'b-aria' : 'b-user';
+  wrap.innerHTML = `
+    <div class="b-avatar ${avatarClass}">${inicial}</div>
+    <div class="bubble">${texto}</div>
+  `;
+  msgs.appendChild(wrap);
+  msgs.scrollTop = msgs.scrollHeight;
+}
+
+function mostrarTyping() {
+  const msgs = document.getElementById('chatMessages');
+  const typing = document.createElement('div');
+  typing.className = 'bubble-wrap aria typing-bubble';
+  typing.id = 'typing';
+  typing.innerHTML = `<div class="b-avatar b-aria">A</div><div class="bubble"><div class="typing-dots"><span></span><span></span><span></span></div></div>`;
+  msgs.appendChild(typing);
+  msgs.scrollTop = msgs.scrollHeight;
+}
+
+function quitarTyping() {
+  const t = document.getElementById('typing');
+  if (t) t.remove();
+}
+
+function enviarConsulta(texto) {
+  activarChat();
+  setTimeout(() => {
+    agregarMensaje(texto, 'user');
+    mostrarTyping();
+    setTimeout(() => {
+      quitarTyping();
+      agregarMensaje(obtenerRespuesta(texto), 'aria');
+    }, 1100);
+  }, 300);
+}
+
+function enviarDesdeInput() {
+  const input = document.getElementById('chatInput');
+  const texto = input.value.trim();
+  if (!texto) return;
+  agregarMensaje(texto, 'user');
+  input.value = '';
+  mostrarTyping();
+  setTimeout(() => {
+    quitarTyping();
+    agregarMensaje(obtenerRespuesta(texto), 'aria');
+  }, 1100);
+}
+
+function activarChat() {
+  document.getElementById('chatSection').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  setTimeout(() => document.getElementById('chatInput').focus(), 600);
+}
+</script>
+</body>
+</html>
