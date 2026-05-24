@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Quiénes Somos - RUN TIME</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,600;9..40,700&amp;family=Fraunces:opsz,wght@9..144,600;9..144,700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-surface-variant": "#414943",
+                      "on-tertiary-fixed-variant": "#6b3839",
+                      "on-primary-container": "#8cbda2",
+                      "on-background": "#1a1c1a",
+                      "surface-container-high": "#e7e9e5",
+                      "secondary-fixed": "#ffdcc4",
+                      "secondary": "#895120",
+                      "primary": "#013623",
+                      "on-primary-fixed-variant": "#204f3a",
+                      "on-error": "#ffffff",
+                      "on-tertiary-container": "#e5a0a0",
+                      "on-error-container": "#93000a",
+                      "tertiary-container": "#683637",
+                      "surface-variant": "#e2e3df",
+                      "error-container": "#ffdad6",
+                      "on-secondary-fixed": "#2f1400",
+                      "on-secondary": "#ffffff",
+                      "on-primary-fixed": "#002113",
+                      "background": "#f9faf6",
+                      "surface": "#f9faf6",
+                      "on-tertiary": "#ffffff",
+                      "primary-fixed-dim": "#a0d2b6",
+                      "on-secondary-container": "#784313",
+                      "tertiary-fixed": "#ffdad9",
+                      "tertiary-fixed-dim": "#fcb4b4",
+                      "surface-container": "#edeeeb",
+                      "inverse-primary": "#a0d2b6",
+                      "surface-container-highest": "#e2e3df",
+                      "primary-container": "#1e4d38",
+                      "on-surface": "#1a1c1a",
+                      "on-tertiary-fixed": "#360e10",
+                      "surface-dim": "#d9dad7",
+                      "outline": "#717973",
+                      "inverse-surface": "#2e312f",
+                      "error": "#ba1a1a",
+                      "primary-fixed": "#bbeed1",
+                      "on-primary": "#ffffff",
+                      "on-secondary-fixed-variant": "#6c3a09",
+                      "surface-tint": "#396751",
+                      "inverse-on-surface": "#f0f1ed",
+                      "secondary-fixed-dim": "#ffb780",
+                      "surface-bright": "#f9faf6",
+                      "outline-variant": "#c0c9c1",
+                      "surface-container-low": "#f3f4f0",
+                      "surface-container-lowest": "#ffffff",
+                      "tertiary": "#4d2022",
+                      "secondary-container": "#feb37a"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "xxl": "64px",
+                      "xl": "40px",
+                      "gutter": "24px",
+                      "xs": "4px",
+                      "container-max": "1280px",
+                      "md": "16px",
+                      "lg": "24px",
+                      "unit": "4px",
+                      "sm": "8px"
+              },
+              "fontFamily": {
+                      "label-caps": [
+                              "DM Sans"
+                      ],
+                      "h1": [
+                              "Fraunces"
+                      ],
+                      "body-lg": [
+                              "DM Sans"
+                      ],
+                      "h3": [
+                              "Fraunces"
+                      ],
+                      "h1-mobile": [
+                              "Fraunces"
+                      ],
+                      "body-md": [
+                              "DM Sans"
+                      ],
+                      "h2": [
+                              "Fraunces"
+                      ],
+                      "button": [
+                              "DM Sans"
+                      ]
+              },
+              "fontSize": {
+                      "label-caps": [
+                              "12px",
+                              {
+                                      "lineHeight": "1",
+                                      "letterSpacing": "0.08em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "h1": [
+                              "48px",
+                              {
+                                      "lineHeight": "1.1",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "1.6",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "h3": [
+                              "24px",
+                              {
+                                      "lineHeight": "1.3",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "h1-mobile": [
+                              "32px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "1.5",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "h2": [
+                              "36px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "button": [
+                              "14px",
+                              {
+                                      "lineHeight": "1",
+                                      "fontWeight": "600"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+<style>
+        .blueprint-bg {
+            background-color: #f9faf6;
+            background-image: linear-gradient(#E5E1DA 1px, transparent 1px), linear-gradient(90deg, #E5E1DA 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+      </style>
+</head>
+<body class="bg-background text-on-background font-body-md text-body-md antialiased selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar -->
+<nav class="bg-primary dark:bg-primary-container fixed top-0 w-full z-50 border-b border-secondary/30">
+<div class="flex justify-between items-center h-xxl px-lg max-w-container-max mx-auto">
+<!-- Brand -->
+<a class="font-h2 text-h2 font-bold tracking-tight text-on-primary dark:text-primary-fixed" href="#">
+                RUN TIME
+            </a>
+<!-- Desktop Nav -->
+<div class="hidden md:flex items-center gap-lg">
+<a class="text-on-primary/80 font-label-caps hover:text-secondary-fixed-dim transition-colors duration-200" href="#">Módulos</a>
+<a class="text-on-primary/80 font-label-caps hover:text-secondary-fixed-dim transition-colors duration-200" href="#">Cómo Funciona</a>
+<a class="text-secondary-fixed font-bold border-b-2 border-secondary-fixed pb-1 hover:text-secondary-fixed-dim transition-colors duration-200" href="#">EGIS</a>
+<a class="text-on-primary/80 font-label-caps hover:text-secondary-fixed-dim transition-colors duration-200" href="#">Testimonios</a>
+</div>
+<!-- Actions -->
+<div class="hidden md:flex items-center gap-md">
+<button class="bg-transparent border border-secondary text-secondary font-button text-button px-md py-sm rounded hover:bg-secondary/10 transition-colors">
+                    Iniciar Sesión
+                </button>
+<button class="bg-primary-container text-on-primary-container font-button text-button px-md py-sm rounded hover:bg-primary-container/90 transition-colors">
+                    Solicitar Demo
+                </button>
+</div>
+<!-- Mobile Menu Toggle -->
+<button class="md:hidden text-on-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">menu</span>
+</button>
+</div>
+</nav>
+<main class="pt-xxl blueprint-bg">
+<!-- Hero Section -->
+<section class="py-xxl px-md md:px-lg max-w-container-max mx-auto relative overflow-hidden">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-xl items-center relative z-10">
+<div class="space-y-lg">
+<h1 class="font-h1 text-h1 text-primary">Arquitectura con Visión Humana.</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-lg">
+                        En RUN TIME, no solo desarrollamos software; construimos los cimientos digitales para las Entidades de Gestión Inmobiliaria Social (EGIS) en Chile. Nuestra misión es dotar de precisión técnica a la labor social más importante: el derecho a una vivienda digna.
+                    </p>
+</div>
+<div class="relative h-[400px] w-full bg-surface-container-high rounded-xl border border-secondary/30 overflow-hidden">
+<img alt="Arquitectura moderna y abstracta" class="w-full h-full object-cover mix-blend-multiply opacity-80" data-alt="A detailed black and white architectural blueprint wireframe of a modern residential complex. The perspective is a low-angle shot looking down a street lined with multi-story buildings, emphasizing geometric precision and structural lines. The aesthetic is purely technical, resembling professional CAD software output or early conceptual drafting, devoid of photorealistic textures or people, highlighting the structural planning phase." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8fZqaD1BMni7TPOhc2Tb0MBHd2oKcuswsLWuMfldnVmHfo3kElV5xaru9Wv5WLdbjNkHQeRaNrjNL0ZEGFAvEIbamu8rIkItUhUF844PyTb4tZDpLuOK3uUsbXVUaOjOZv5IzERxWp6JkQ9dYm4FT4VrNKovoQpkCxG0JTQSMx4r7MSlBgBRsMKlMFO6pLAIaDyPZQ108XBMIBW-pB0ECm_wgNuBGB9-f_2R6w7nIFxCQPcTbQ5jmRqUl1o4JzIL0YwCQEupijIY"/>
+</div>
+</div>
+</section>
+<!-- Vision & Mission Bento Grid -->
+<section class="py-xxl px-md md:px-lg max-w-container-max mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-lg">
+<!-- Mission Card -->
+<div class="md:col-span-2 bg-surface border border-secondary/30 rounded p-lg relative overflow-hidden group">
+<div class="absolute top-0 left-0 w-full h-1 bg-primary transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
+<span class="material-symbols-outlined text-secondary text-4xl mb-md block">architecture</span>
+<h2 class="font-h2 text-h2 text-primary mb-sm">Nuestra Misión</h2>
+<p class="text-on-surface-variant">
+                        Proveer a las EGIS de una plataforma tecnológica robusta, precisa y escalable que optimice la gestión de proyectos habitacionales. Buscamos erradicar la ineficiencia administrativa mediante herramientas que combinan el rigor de la ingeniería estructural con la accesibilidad de una interfaz moderna, permitiendo a los profesionales enfocarse en el impacto social.
+                    </p>
+</div>
+<!-- Vision Card -->
+<div class="bg-surface-container border border-secondary/30 rounded p-lg relative overflow-hidden group">
+<div class="absolute top-0 left-0 w-full h-1 bg-secondary transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
+<span class="material-symbols-outlined text-primary text-4xl mb-md block">visibility</span>
+<h3 class="font-h3 text-h3 text-primary mb-sm">Nuestra Visión</h3>
+<p class="text-on-surface-variant">
+                        Ser el estándar nacional en infraestructura digital para el desarrollo de viviendas sociales, donde cada proyecto en Chile nazca de planos digitales perfectamente trazados en nuestra plataforma.
+                    </p>
+</div>
+</div>
+</section>
+<!-- Timeline / Trajectory (Tectonic Stepper style) -->
+<section class="py-xxl px-md md:px-lg max-w-container-max mx-auto">
+<h2 class="font-h2 text-h2 text-primary mb-xl text-center">Nuestros Cimientos</h2>
+<div class="relative">
+<!-- Center Line -->
+<div class="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-secondary/30 -translate-x-1/2"></div>
+<div class="space-y-xl">
+<!-- Step 1 -->
+<div class="relative flex flex-col md:flex-row items-center justify-between group">
+<div class="md:w-5/12 text-right order-2 md:order-1 pt-md md:pt-0 pl-md md:pl-0">
+<h3 class="font-h3 text-h3 text-primary">Fundación</h3>
+<p class="font-label-caps text-label-caps text-secondary mb-xs">2018</p>
+<p class="text-on-surface-variant">Nace RUN TIME como respuesta a la necesidad de digitalización de las EGIS en la región central, desarrollando el primer módulo de seguimiento de expedientes.</p>
+</div>
+<div class="absolute left-0 md:left-1/2 top-0 md:top-1/2 -translate-y-1/2 md:-translate-x-1/2 w-4 h-4 rounded-full bg-primary z-10 border-4 border-surface shadow-[0_0_0_1px_rgba(193,127,74,0.3)]"></div>
+<div class="md:w-5/12 order-3"></div>
+</div>
+<!-- Step 2 -->
+<div class="relative flex flex-col md:flex-row items-center justify-between group">
+<div class="md:w-5/12 order-1 md:order-1"></div>
+<div class="absolute left-0 md:left-1/2 top-0 md:top-1/2 -translate-y-1/2 md:-translate-x-1/2 w-4 h-4 rounded-full bg-primary z-10 border-4 border-surface shadow-[0_0_0_1px_rgba(193,127,74,0.3)]"></div>
+<div class="md:w-5/12 text-left order-2 md:order-3 pt-md md:pt-0 pl-md md:pl-0">
+<h3 class="font-h3 text-h3 text-primary">Expansión Nacional</h3>
+<p class="font-label-caps text-label-caps text-secondary mb-xs">2021</p>
+<p class="text-on-surface-variant">Lanzamiento de la plataforma en la nube, permitiendo la gestión colaborativa y alcanzando a más de 50 entidades a nivel nacional.</p>
+</div>
+</div>
+<!-- Step 3 (Current) -->
+<div class="relative flex flex-col md:flex-row items-center justify-between group">
+<div class="md:w-5/12 text-right order-2 md:order-1 pt-md md:pt-0 pl-md md:pl-0">
+<h3 class="font-h3 text-h3 text-primary">Consolidación Técnica</h3>
+<p class="font-label-caps text-label-caps text-secondary mb-xs">2024</p>
+<p class="text-on-surface-variant">Integración de herramientas de análisis de viabilidad técnica y normativa habitacional chilena actualizada en tiempo real.</p>
+</div>
+<div class="absolute left-0 md:left-1/2 top-0 md:top-1/2 -translate-y-1/2 md:-translate-x-1/2 w-4 h-4 rounded-full bg-surface z-10 border-[3px] border-primary shadow-[0_0_0_1px_rgba(193,127,74,0.3)]">
+<div class="w-1.5 h-1.5 bg-secondary rounded-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></div>
+</div>
+<div class="md:w-5/12 order-3"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Leadership Team (High-End Cards) -->
+<section class="py-xxl px-md md:px-lg bg-surface-container-low border-y border-secondary/30">
+<div class="max-w-container-max mx-auto">
+<h2 class="font-h2 text-h2 text-primary mb-xl text-center">Equipo Directivo</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-lg">
+<!-- Profile 1 -->
+<div class="bg-surface border border-secondary/30 p-md flex flex-col items-center text-center group hover:border-primary transition-colors">
+<div class="w-32 h-32 rounded-full overflow-hidden mb-md border-2 border-surface-container shadow-sm grayscale group-hover:grayscale-0 transition-all duration-500">
+<img alt="Director General" class="w-full h-full object-cover" data-alt="A professional headshot of a confident, middle-aged male architect in a bright, modern office with large windows. He is wearing a crisp white shirt and a dark tailored blazer. The lighting is soft and natural, casting subtle shadows that highlight his experienced features. The overall tone is institutional, trustworthy, and distinctly professional, matching a high-end corporate or public sector leadership profile." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8l6O7joG1Tb2CxBZmNUWBsCaFXuF5s2hUYdqBdT_YBAKGOBGMvmHYRsPmR5t2Sob3LP6ydCIijMYiYKRjv6l6FMF2r3JcM2qhA23avAN5FttnjKey49mZ-1sxNKGJg9_3LkMA0GhFIzuihvE8WNaS-sWeOPDXOdzmpzJp6WzJJ4NcUO7gmE9qG6R3fu1MAT879FtiOCTXJBuejrS8_gxhu4_GIJsbPCQ_ynqQChjmA3otS1f9tVuIbfZqtUM2SZ91BWQtGXWJGjQ"/>
+</div>
+<h3 class="font-h3 text-h3 text-primary">Carlos Valenzuela</h3>
+<p class="font-label-caps text-label-caps text-secondary mb-sm">Director Ejecutivo (CEO)</p>
+<hr class="w-full border-secondary/20 mb-sm"/>
+<p class="text-sm text-on-surface-variant">Arquitecto UChile. +15 años de experiencia en gestión de proyectos habitacionales públicos.</p>
+</div>
+<!-- Profile 2 -->
+<div class="bg-surface border border-secondary/30 p-md flex flex-col items-center text-center group hover:border-primary transition-colors">
+<div class="w-32 h-32 rounded-full overflow-hidden mb-md border-2 border-surface-container shadow-sm grayscale group-hover:grayscale-0 transition-all duration-500">
+<img alt="Directora de Tecnología" class="w-full h-full object-cover" data-alt="A professional headshot of an intelligent, middle-aged female software engineer or technical director in a sophisticated, well-lit modern workspace. She is wearing a smart-casual dark green blouse. The lighting highlights her focused expression against a subtly blurred background of architectural models or technical blueprints. The aesthetic conveys technical authority, precision, and modern leadership in a tech-driven institutional setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBg_zJgUAykkNmzt9pUgtzqP2n9Mv1J1mllouRL19tgGUWCdaveJlbwirdvwXeowWRReDBIR3NNWo14RMI4Vm8TNmHoB6x4mjuYvrwRZiro5oRvdXWyz7UELd1TcfajVkaPUTxKkiCgKYMdb3E5Oaezl4d8jhEM0bKmBXGK8MGOlt0aivgBD1EYFRejlTFvlRtd7e16k3lkHLaH2vcNhShBTRXuxDfeqbcwfuYd6HSaFmws0OBCahdBn9sFUNFMBCn2lMe8sAP-gvI"/>
+</div>
+<h3 class="font-h3 text-h3 text-primary">Andrea Soto</h3>
+<p class="font-label-caps text-label-caps text-secondary mb-sm">Directora de Tecnología (CTO)</p>
+<hr class="w-full border-secondary/20 mb-sm"/>
+<p class="text-sm text-on-surface-variant">Ingeniera Civil Informática. Especialista en arquitecturas de software escalables para el sector público.</p>
+</div>
+<!-- Profile 3 -->
+<div class="bg-surface border border-secondary/30 p-md flex flex-col items-center text-center group hover:border-primary transition-colors">
+<div class="w-32 h-32 rounded-full overflow-hidden mb-md border-2 border-surface-container shadow-sm grayscale group-hover:grayscale-0 transition-all duration-500">
+<img alt="Director de Operaciones" class="w-full h-full object-cover" data-alt="A professional headshot of a mature, approachable male operations director standing in a bright corridor with minimalist architectural details. He is wearing a light grey suit jacket over a simple collared shirt. Natural light streams in, creating a clean, high-key light mode atmosphere. The mood is sturdy, reliable, and deeply human, reflecting leadership in a socially responsible public housing enterprise." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAVfQR-TsW1oV_eLF7ZmWvRep9U27fw_J15bO0slxfWxVpMouTsHTLDPG2XURFIdDVrFndkzq6xRBclCej0eC81bbqNWVH-oVpuP9wLmkJZF2wgByTrdbr_9_G6dgPolj0ECLTSvugXgdBZPc7eMc42vYbejMybPqwpMFI3v7vACoko5Qegzz5TENkoLv1mVvdp5MGPpi33kw3i6UmC_LZfg4ZdhQIIF0-5HSWuhotN_2SBILK4PMsDX4595OiinU7lYF-XGkwpNtQ"/>
+</div>
+<h3 class="font-h3 text-h3 text-primary">Roberto Morales</h3>
+<p class="font-label-caps text-label-caps text-secondary mb-sm">Director de Operaciones (COO)</p>
+<hr class="w-full border-secondary/20 mb-sm"/>
+<p class="text-sm text-on-surface-variant">Experto en normativa MINVU y optimización de procesos para Entidades Patrocinantes.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Projects Gallery (Asymmetric Architectural Layout) -->
+<section class="py-xxl px-md md:px-lg max-w-container-max mx-auto">
+<h2 class="font-h2 text-h2 text-primary mb-xl">Proyectos Gestionados con RUN TIME</h2>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-lg">
+<!-- Large Featured Project -->
+<div class="md:col-span-8 bg-surface border border-secondary/30 flex flex-col relative group">
+<div class="h-64 md:h-80 w-full overflow-hidden bg-surface-container-high relative">
+<div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMSIgY3k9IjEiIHI9IjEiIGZpbGw9IiNDMTdGNEEiIGZpbGwtb3BhY2l0eT0iMC4yIi8+PC9zdmc+')] opacity-20"></div>
+<img alt="Proyecto Habitacional 1" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 mix-blend-luminosity opacity-80" data-alt="A clean, minimalist architectural photograph of a newly constructed modern social housing complex. The buildings feature simple, elegant lines with earthy tones and tectonic layering. The setting is bright and sunny, emphasizing sturdy construction and dignified living spaces. The image should feel like a successful realization of professional architectural planning, grounding the abstract digital tools in tangible, socially impactful reality." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDoU5GL0VRcNKIbv20jhQOJ5spUhBm5jUmwEKSKNNAPWNjA-BnNzvpMP8Uu4VNUmD0w16dvlrsdML7TQESYXwH7QY-3U4rvVqpFXrHRVUJq3q5-_xy-dRQypKgWZFC8T0EOIbj0jnoRF0CdAl9dYAT_lJ7wpUcvf-gs90WYV9y9WUpdm5lOIuGfwPvQ46hp3xWd42OShI_Hx3K-LrPfC7RPG2Fkc8N6gdD_H62COw3HJ1Wsy6qifcghZiemN9fuu-8_jISxp925qMI"/>
+</div>
+<div class="p-md flex flex-col justify-between flex-grow">
+<div>
+<h3 class="font-h3 text-h3 text-primary">Villa Los Castaños, Región del Maule</h3>
+<p class="text-on-surface-variant mt-sm">Gestión integral de 120 viviendas sociales. Trazabilidad completa desde el diseño hasta la entrega.</p>
+</div>
+<div class="mt-lg border-t border-secondary/30 pt-sm flex justify-between items-center">
+<span class="font-label-caps text-label-caps text-secondary">EGIS: Constructora del Sur</span>
+<span class="material-symbols-outlined text-primary">check_circle</span>
+</div>
+</div>
+</div>
+<!-- Stacked Smaller Projects -->
+<div class="md:col-span-4 flex flex-col gap-lg">
+<!-- Small Project 1 -->
+<div class="bg-surface border border-secondary/30 flex-grow flex flex-col group">
+<div class="h-32 w-full bg-surface-container-high overflow-hidden">
+<img alt="Proyecto Habitacional 2" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 grayscale opacity-70" data-alt="An architectural detail shot focusing on the clean lines and materials of a modern housing structure. The image highlights a textured concrete wall beside a simple, elegant walkway, conveying stability and quality construction. The lighting is strong, casting precise, tectonic shadows that reflect the rigorous planning and structural integrity championed by the design system's ethos." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCMkPdBQP6JLrTTEsRJ8w4-6o7JTlyUxt_tsFvWrnCzUEvgj7VQNUbfhx5EvMeu3x-Lg8PFKaqx2EntQiEPgqmLyICYxdhIS0uiZ6HnT0ocnAvN4_XYVgr8jVPtn5yuqZxFsy4qJkOawdVwY1Btj7YivHlKzC3yNw7DtZ5EqUrpKxs9fD_bvVFD-kPO-m4DG3cA-92YFH8hLsM6mEfo17eb3jqvHAJg_gDtsIn_N7K2FRNM3aWvcUo5j33tuIW5dtBIMByjnrxP7_A"/>
+</div>
+<div class="p-md flex-grow flex flex-col justify-between">
+<h4 class="font-h3 text-h3 text-primary text-lg">Condominio El Rosal</h4>
+<div class="mt-md border-t border-secondary/30 pt-sm">
+<span class="font-label-caps text-label-caps text-secondary">Fase: Ejecución</span>
+</div>
+</div>
+</div>
+<!-- Small Project 2 -->
+<div class="bg-surface border border-secondary/30 flex-grow flex flex-col group">
+<div class="h-32 w-full bg-surface-container-high overflow-hidden">
+<img alt="Proyecto Habitacional 3" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 grayscale opacity-70" data-alt="A wide-angle architectural shot of a planned residential neighborhood in its early construction phases. The image shows the foundational layout and grid-like structure of the development against a clear, light sky. The aesthetic is orderly and methodical, representing the precise translation of digital blueprints into physical, socially responsible housing infrastructure in a grounded, earthy setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDq7qTSz1GX0C1q9vFtNvoQusX97M-uEfatbmAdAbqTMuB9gqvp9fja7xouDOxiM8zYE1JVPzV2yus8cBVd6USxZbd2PRbAvrj3O387lpUht1S83ldRurPNivWbRemzsNlwIUGXpAgBm5nJuQiInyj4JMZ2FTPRU3v2OQ4FmUOT0bXYiCOMUgR2Q_sMNaLUfFzWszkaa4QbPOYRNRfekAn7-U-9kTPSL4JhrvMs3d_ZFP8vcdpTht5xbkHljR22RzFUHKUtepdL2b8"/>
+</div>
+<div class="p-md flex-grow flex flex-col justify-between">
+<h4 class="font-h3 text-h3 text-primary text-lg">Altos de Renca</h4>
+<div class="mt-md border-t border-secondary/30 pt-sm">
+<span class="font-label-caps text-label-caps text-secondary">Fase: Diseño Técnico</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container dark:bg-inverse-surface w-full py-xl border-t border-secondary/30 mt-xxl">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-lg px-lg max-w-container-max mx-auto">
+<!-- Brand Column -->
+<div class="flex flex-col gap-sm">
+<span class="font-h3 text-h3 font-bold text-primary dark:text-primary-fixed">RUN TIME</span>
+<p class="text-sm text-on-surface-variant mt-sm">Software para EGIS con Visión Humana.</p>
+<p class="text-xs text-on-surface-variant/70 mt-md">© 2024 RUN TIME. Chile.</p>
+</div>
+<!-- Links Columns -->
+<div class="flex flex-col gap-sm">
+<a class="text-on-surface-variant dark:text-outline hover:text-secondary transition-colors duration-200 underline-offset-4 hover:underline text-sm" href="#">Privacidad</a>
+<a class="text-on-surface-variant dark:text-outline hover:text-secondary transition-colors duration-200 underline-offset-4 hover:underline text-sm" href="#">Términos de Servicio</a>
+</div>
+<div class="flex flex-col gap-sm">
+<a class="text-on-surface-variant dark:text-outline hover:text-secondary transition-colors duration-200 underline-offset-4 hover:underline text-sm" href="#">Contacto</a>
+<a class="text-on-surface-variant dark:text-outline hover:text-secondary transition-colors duration-200 underline-offset-4 hover:underline text-sm" href="#">Documentación</a>
+<a class="text-on-surface-variant dark:text-outline hover:text-secondary transition-colors duration-200 underline-offset-4 hover:underline text-sm" href="#">Preguntas Frecuentes</a>
+</div>
+<!-- Empty column for layout balance in 4-col grid -->
+<div></div>
+</div>
+</footer>
+</body></html>

@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>RUN TIME - Entidad Patrocinante</title>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration -->
+<script data-purpose="tailwind-config">
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            DEFAULT: '#1e4d38', // Deep Forest Green
+                            light: '#2a6b4e',
+                            dark: '#143325',
+                            50: '#eefcf5',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+<!-- Google Fonts for better typography -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+</head>
+<body class="antialiased text-gray-800 bg-white font-sans selection:bg-brand selection:text-white relative min-h-screen flex flex-col">
+<!-- BEGIN: Architectural Background -->
+<!-- The wireframe image is set as a fixed background with low opacity to serve as a texture without impacting legibility -->
+<div class="fixed inset-0 z-0 pointer-events-none" style="background-image: url('https://lh3.googleusercontent.com/aida/ADBb0ujOm6sxjF7vd32fqwV-McAv-8cTr71kXWt4GS0vOPUzGFsSPKJ0jxoJ9T97fBi7whd1WGU9OnrlXEYely_Z4F2i3V-Q4QcG4zZyL-g0hYDVIziSc_QfyNIrN9YFsR1gXqyZAPwZonXfrw5vQxDuqbLxdUlehsCfFffGCfYBYD-PURWZ22xfoaD_87t39SfhjxvYF6i0n6hnP37C3kxzFQGy063FNbkD730FphugGXctkYyKGcLn6fpwlyjVvWeVxfm10KZlDBAUog'); background-size: cover; background-position: center; opacity: 0.15; mix-blend-mode: multiply;">
+</div>
+<!-- END: Architectural Background -->
+<div class="relative z-10 flex flex-col min-h-screen">
+<!-- BEGIN: MainHeader -->
+<header class="bg-white/90 backdrop-blur-md border-b border-gray-200 sticky top-0 z-50 transition-all duration-300">
+<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-20">
+<!-- Logo -->
+<div class="flex-shrink-0 flex items-center gap-2 cursor-pointer">
+<svg class="w-8 h-8 text-brand" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span class="font-extrabold text-2xl tracking-tight text-gray-900">RUN<span class="text-brand">TIME</span></span>
+</div>
+<!-- Desktop Navigation -->
+<nav class="hidden md:flex space-x-8">
+<a class="text-gray-600 hover:text-brand font-medium transition-colors" href="#">Inicio</a>
+<a class="text-gray-600 hover:text-brand font-medium transition-colors" href="#entidad">¿Qué Somos?</a>
+<a class="text-gray-600 hover:text-brand font-medium transition-colors" href="#">Proyectos</a>
+<a class="text-gray-600 hover:text-brand font-medium transition-colors" href="#">Plataforma</a>
+</nav>
+<!-- CTA Button -->
+<div class="hidden md:flex items-center">
+<a class="inline-flex items-center justify-center px-6 py-2.5 border border-transparent text-sm font-semibold rounded-lg text-white bg-brand hover:bg-brand-light shadow-sm transition-all duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand" href="#">
+                            Acceso Clientes
+                        </a>
+</div>
+<!-- Mobile menu button -->
+<div class="flex items-center md:hidden">
+<button aria-expanded="false" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-brand" type="button">
+<span class="sr-only">Open main menu</span>
+<svg aria-hidden="true" class="block h-6 w-6" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+</div>
+</div>
+</div>
+</header>
+<!-- END: MainHeader -->
+<!-- BEGIN: Main Content Area -->
+<main class="flex-grow">
+<!-- BEGIN: Hero Section -->
+<section class="relative pt-16 pb-24 lg:pt-24 lg:pb-32 overflow-hidden">
+<div class="container mx-auto px-4 sm:px-6 lg:px-8 relative">
+<div class="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+<!-- Hero Text -->
+<div class="max-w-2xl">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-50 border border-brand/20 text-brand text-sm font-medium mb-6">
+<span class="w-2 h-2 rounded-full bg-brand animate-pulse"></span>
+                                Gestión Integral de Proyectos
+                            </div>
+<h1 class="text-5xl lg:text-6xl font-extrabold text-gray-900 tracking-tight leading-[1.1] mb-6">
+                                Que se cumplan los planes es nuestro <span class="text-brand relative whitespace-nowrap">
+                                    norte
+                                    <!-- Decorative underline -->
+<svg class="absolute w-full h-3 -bottom-1 left-0 text-brand/30" preserveaspectratio="none" viewbox="0 0 100 10"><path d="M0 5 Q 50 10 100 5" fill="transparent" stroke="currentColor" stroke-width="4"></path></svg>
+</span>
+</h1>
+<p class="text-xl text-gray-600 mb-8 leading-relaxed">
+                                Somos la Entidad Patrocinante líder en la estructuración, gestión y ejecución de proyectos habitacionales. Transformamos planos en realidades tangibles con precisión técnica y compromiso social.
+                            </p>
+<div class="flex flex-col sm:flex-row gap-4">
+<a class="inline-flex justify-center items-center px-8 py-3.5 border border-transparent text-base font-semibold rounded-lg text-white bg-brand hover:bg-brand-light shadow-lg hover:shadow-xl transition-all duration-200" href="#">
+                                    Iniciar Evaluación
+                                </a>
+<a class="inline-flex justify-center items-center px-8 py-3.5 border-2 border-gray-200 text-base font-semibold rounded-lg text-gray-700 bg-white hover:bg-gray-50 hover:border-gray-300 transition-all duration-200" href="#entidad">
+                                    Conocer Más
+                                </a>
+</div>
+</div>
+<!-- Hero Dashboard Mockup -->
+<div class="relative mx-auto w-full max-w-lg lg:max-w-none">
+<!-- Decorative blur behind dashboard -->
+<div class="absolute -inset-0.5 bg-gradient-to-r from-brand to-emerald-600 rounded-[2rem] blur opacity-20 animate-pulse"></div>
+<div class="relative bg-white/80 backdrop-blur-xl rounded-[2rem] border border-white shadow-2xl p-6 sm:p-8">
+<div class="flex items-center justify-between mb-8 border-b border-gray-100 pb-4">
+<h3 class="text-lg font-bold text-gray-900">Panel de Control General</h3>
+<span class="text-xs font-medium bg-green-100 text-green-800 px-2.5 py-0.5 rounded-full">Actualizado hoy</span>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+<!-- Metric Card 1 -->
+<div class="bg-white rounded-xl p-5 border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+<div class="flex items-center gap-3 mb-2">
+<div class="p-2 bg-blue-50 rounded-lg">
+<svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</div>
+<p class="text-sm font-medium text-gray-500">Familias Activas</p>
+</div>
+<p class="text-3xl font-bold text-gray-900">1,248</p>
+<p class="text-xs text-green-600 mt-1 flex items-center font-medium">
+<svg class="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M5 10l7-7m0 0l7 7m-7-7v18" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+                                            12% este mes
+                                        </p>
+</div>
+<!-- Metric Card 2 -->
+<div class="bg-white rounded-xl p-5 border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+<div class="flex items-center gap-3 mb-2">
+<div class="p-2 bg-brand-50 rounded-lg">
+<svg class="w-5 h-5 text-brand" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</div>
+<p class="text-sm font-medium text-gray-500">Proyectos en Curso</p>
+</div>
+<p class="text-3xl font-bold text-gray-900">34</p>
+<p class="text-xs text-gray-500 mt-1 font-medium">Distribuidos en 5 regiones</p>
+</div>
+<!-- Metric Card 3 (Full Width) -->
+<div class="bg-white rounded-xl p-5 border border-gray-100 shadow-sm hover:shadow-md transition-shadow sm:col-span-2">
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-3">
+<div class="p-2 bg-purple-50 rounded-lg">
+<svg class="w-5 h-5 text-purple-600" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</div>
+<p class="text-sm font-medium text-gray-500">Índice de Cumplimiento Técnico</p>
+</div>
+<p class="text-2xl font-bold text-gray-900">98.5%</p>
+</div>
+<!-- Progress Bar -->
+<div class="w-full bg-gray-100 rounded-full h-2.5">
+<div class="bg-brand h-2.5 rounded-full" style="width: 98.5%"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: Hero Section -->
+<!-- BEGIN: What is an Entidad Patrocinante Section -->
+<section class="relative py-24 bg-white/95 border-t border-gray-200" id="entidad">
+<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center max-w-3xl mx-auto mb-16">
+<h2 class="text-sm font-bold text-brand uppercase tracking-widest mb-2">Conócenos</h2>
+<h3 class="text-3xl md:text-4xl font-extrabold text-gray-900">¿Qué es una Entidad Patrocinante?</h3>
+<p class="mt-4 text-lg text-gray-600">
+                            Somos organizaciones fundamentales en el ecosistema habitacional, actuando como puente técnico y social entre las familias y el desarrollo de sus viviendas.
+                        </p>
+</div>
+<div class="grid md:grid-cols-3 gap-8">
+<!-- Pillar 1 -->
+<div class="bg-gray-50 rounded-2xl p-8 border border-gray-100 hover:shadow-xl hover:border-brand/30 transition-all duration-300 group">
+<div class="w-14 h-14 bg-white rounded-xl shadow-sm border border-gray-200 flex items-center justify-center mb-6 group-hover:bg-brand group-hover:text-white transition-colors text-brand">
+<svg class="w-7 h-7" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</div>
+<h4 class="text-xl font-bold text-gray-900 mb-3">Certificación Oficial</h4>
+<p class="text-gray-600 leading-relaxed">
+                                Entidades reconocidas y reguladas por el Ministerio de Vivienda y Urbanismo (MINVU), autorizadas para formular y desarrollar proyectos habitacionales con subsidios estatales.
+                            </p>
+</div>
+<!-- Pillar 2 -->
+<div class="bg-gray-50 rounded-2xl p-8 border border-gray-100 hover:shadow-xl hover:border-brand/30 transition-all duration-300 group">
+<div class="w-14 h-14 bg-white rounded-xl shadow-sm border border-gray-200 flex items-center justify-center mb-6 group-hover:bg-brand group-hover:text-white transition-colors text-brand">
+<svg class="w-7 h-7" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</div>
+<h4 class="text-xl font-bold text-gray-900 mb-3">Misión Central</h4>
+<p class="text-gray-600 leading-relaxed">
+                                Organizar la demanda habitacional, brindando asesoría social, legal y técnica a las familias durante todo el proceso, desde la postulación hasta la recepción de la vivienda.
+                            </p>
+</div>
+<!-- Pillar 3 -->
+<div class="bg-gray-50 rounded-2xl p-8 border border-gray-100 hover:shadow-xl hover:border-brand/30 transition-all duration-300 group">
+<div class="w-14 h-14 bg-white rounded-xl shadow-sm border border-gray-200 flex items-center justify-center mb-6 group-hover:bg-brand group-hover:text-white transition-colors text-brand">
+<svg class="w-7 h-7" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</div>
+<h4 class="text-xl font-bold text-gray-900 mb-3">Cumplimiento Técnico</h4>
+<p class="text-gray-600 leading-relaxed">
+                                Responsables de la elaboración de diseños de arquitectura e ingeniería, garantizando que cada proyecto cumpla con estrictos estándares de calidad y normativas vigentes.
+                            </p>
+</div>
+</div>
+</div>
+</section>
+<!-- END: What is an Entidad Patrocinante Section -->
+</main>
+<!-- END: Main Content Area -->
+<!-- BEGIN: Footer -->
+<footer class="bg-gray-900 py-12 text-gray-300 relative z-10 border-t border-gray-800">
+<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+<div class="col-span-1 md:col-span-2">
+<div class="flex items-center gap-2 mb-4">
+<svg class="w-8 h-8 text-brand" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span class="font-extrabold text-2xl tracking-tight text-white">RUN<span class="text-brand">TIME</span></span>
+</div>
+<p class="text-sm text-gray-400 max-w-sm">
+                            Haciendo realidad los proyectos habitacionales de miles de familias con profesionalismo, transparencia y eficiencia técnica.
+                        </p>
+</div>
+<div>
+<h4 class="text-white font-bold mb-4 uppercase text-sm tracking-wider">Enlaces</h4>
+<ul class="space-y-2 text-sm">
+<li><a class="hover:text-white transition-colors" href="#">Plataforma Clientes</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Proyectos Vigentes</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Marco Normativo</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-white font-bold mb-4 uppercase text-sm tracking-wider">Contacto</h4>
+<ul class="space-y-2 text-sm text-gray-400">
+<li>contacto@runtime-ep.cl</li>
+<li>+56 2 2345 6789</li>
+<li>Santiago, Chile</li>
+</ul>
+</div>
+</div>
+<div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500">
+<p>© 2023 RUN TIME Entidad Patrocinante. Todos los derechos reservados.</p>
+<div class="space-x-4 mt-4 md:mt-0">
+<a class="hover:text-white" href="#">Términos Legales</a>
+<a class="hover:text-white" href="#">Política de Privacidad</a>
+</div>
+</div>
+</div>
+</footer>
+<!-- END: Footer -->
+</div>
+</body></html>

@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>RUN TIME - Dashboard</title>
+<!-- Fonts & Icons -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;500;600;700&amp;family=Fraunces:opsz,wght@9..144,400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Config -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-fixed": "#360e10",
+                        "on-primary-container": "#8cbda2",
+                        "on-surface": "#1a1c1a",
+                        "on-tertiary-fixed-variant": "#6b3839",
+                        "secondary": "#895120",
+                        "error-container": "#ffdad6",
+                        "inverse-on-surface": "#f0f1ed",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-container": "#784313",
+                        "surface-variant": "#e2e3df",
+                        "secondary-fixed": "#ffdcc4",
+                        "background": "#f9faf6",
+                        "surface-container-highest": "#e2e3df",
+                        "primary-container": "#1e4d38",
+                        "tertiary-fixed": "#ffdad9",
+                        "primary": "#013623",
+                        "tertiary-container": "#683637",
+                        "on-background": "#1a1c1a",
+                        "surface-container-high": "#e7e9e5",
+                        "surface": "#f9faf6",
+                        "surface-dim": "#d9dad7",
+                        "surface-container-low": "#f3f4f0",
+                        "primary-fixed-dim": "#a0d2b6",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary-container": "#e5a0a0",
+                        "inverse-surface": "#2e312f",
+                        "inverse-primary": "#a0d2b6",
+                        "surface-bright": "#f9faf6",
+                        "surface-tint": "#396751",
+                        "outline-variant": "#c0c9c1",
+                        "error": "#ba1a1a",
+                        "on-primary-fixed-variant": "#204f3a",
+                        "on-surface-variant": "#414943",
+                        "on-primary-fixed": "#002113",
+                        "tertiary": "#4d2022",
+                        "outline": "#717973",
+                        "on-secondary-fixed-variant": "#6c3a09",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "secondary-fixed-dim": "#ffb780",
+                        "secondary-container": "#feb37a",
+                        "on-error-container": "#93000a",
+                        "primary-fixed": "#bbeed1",
+                        "on-error": "#ffffff",
+                        "surface-container": "#edeeeb",
+                        "tertiary-fixed-dim": "#fcb4b4",
+                        "on-secondary-fixed": "#2f1400"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "unit": "4px",
+                        "sm": "8px",
+                        "gutter": "24px",
+                        "xl": "40px",
+                        "xs": "4px",
+                        "md": "16px",
+                        "lg": "24px",
+                        "container-max": "1280px",
+                        "xxl": "64px"
+                    },
+                    "fontFamily": {
+                        "h3": ["Fraunces"],
+                        "button": ["DM Sans"],
+                        "body-lg": ["DM Sans"],
+                        "label-caps": ["DM Sans"],
+                        "h1-mobile": ["Fraunces"],
+                        "body-md": ["DM Sans"],
+                        "h1": ["Fraunces"],
+                        "h2": ["Fraunces"]
+                    },
+                    "fontSize": {
+                        "h3": ["24px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "button": ["14px", { "lineHeight": "1", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "label-caps": ["12px", { "lineHeight": "1", "letterSpacing": "0.08em", "fontWeight": "700" }],
+                        "h1-mobile": ["32px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "h1": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "h2": ["36px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .blueprint-bg {
+            background-image: 
+                linear-gradient(rgba(193, 127, 74, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(193, 127, 74, 0.05) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md min-h-screen flex antialiased blueprint-bg">
+<!-- SideNavBar -->
+<nav class="bg-surface dark:bg-surface-dim font-h3 text-h3 font-body-md text-body-md docked left-0 h-screen w-64 border-r border-outline-variant/30 flat no shadows fixed left-0 top-0 h-full w-64 flex flex-col py-lg z-40">
+<div class="px-gutter mb-xl flex items-center gap-md">
+<div class="w-10 h-10 rounded bg-primary-container text-on-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">foundation</span>
+</div>
+<div>
+<h1 class="font-h3 text-h3 text-primary dark:text-primary-fixed-dim tracking-tight m-0">RUN TIME</h1>
+<p class="font-label-caps text-label-caps text-secondary">Housing Intranet</p>
+</div>
+</div>
+<div class="flex flex-col gap-unit px-md flex-grow">
+<a class="flex items-center gap-md px-md py-sm rounded-DEFAULT text-primary dark:text-primary-fixed-dim font-bold bg-primary-fixed/20 border-r-4 border-primary hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-all duration-200 Active: translate-x-1 transition-transform" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded-DEFAULT text-on-surface-variant dark:text-on-surface-variant font-medium hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-all duration-200" href="#">
+<span class="material-symbols-outlined">group</span>
+<span>Clientes/Familias</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded-DEFAULT text-on-surface-variant dark:text-on-surface-variant font-medium hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-all duration-200" href="#">
+<span class="material-symbols-outlined">architecture</span>
+<span>Proyectos</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded-DEFAULT text-on-surface-variant dark:text-on-surface-variant font-medium hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-all duration-200" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span>Seguimiento</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded-DEFAULT text-on-surface-variant dark:text-on-surface-variant font-medium hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-all duration-200" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span>Configuración</span>
+</a>
+</div>
+<div class="px-md mt-auto">
+<a class="flex items-center gap-md px-md py-sm rounded-DEFAULT text-on-surface-variant dark:text-on-surface-variant font-medium hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-all duration-200" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span>Cerrar Sesión</span>
+</a>
+</div>
+</nav>
+<!-- Main Content Area -->
+<div class="flex-1 flex flex-col min-w-0 ml-64">
+<!-- TopAppBar -->
+<header class="bg-surface/90 backdrop-blur-md dark:bg-surface-dim/90 text-primary dark:text-inverse-primary font-h2 text-h2 font-body-md text-body-md docked top-0 right-0 border-b border-outline-variant/30 flat no shadows sticky top-0 w-full z-30 flex items-center justify-between px-lg h-20 max-w-full">
+<div class="flex items-center gap-md w-1/3">
+<div class="relative w-full max-w-md hidden md:block">
+<span class="material-symbols-outlined absolute left-sm top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="w-full bg-surface-container-highest border border-surface-variant rounded-DEFAULT py-xs pl-xl pr-md text-body-md text-on-surface focus:border-primary focus:ring-1 focus:ring-primary/20 outline-none transition-all placeholder:text-outline-variant" placeholder="Buscar..." type="text"/>
+</div>
+</div>
+<div class="font-h3 text-h3 text-primary dark:text-primary-fixed-dim absolute left-1/2 -translate-x-1/2 md:hidden">
+                Dashboard
+            </div>
+<div class="flex items-center gap-md">
+<button class="p-xs text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim cursor-pointer rounded-full hover:bg-surface-container-high transition-colors relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-1 right-1 w-2 h-2 bg-error rounded-full"></span>
+</button>
+<button class="p-xs text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim cursor-pointer rounded-full hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined">help_outline</span>
+</button>
+<div class="h-8 w-8 rounded-full bg-secondary-container overflow-hidden border border-outline-variant">
+<img alt="Administrator Profile" class="w-full h-full object-cover" data-alt="A professional headshot of a mature businessman in a sharp suit, neutral background, cinematic lighting, modern corporate style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAfXKbAR8WMLkyhgA3lDIgzrt1HsfmcR8_dQ0ke-3-YNVtxU7MCgVejVKfp3zBl-IIbhuy5J_Z8jN3OerjMvYi6-GDHT9eThp_aVtKqzCzDt3_0CXVXs8hnUxE5Ac5HDNWKAXqgPMGFYox365qC6cG4582QIL41DauOZxVaDm623OqG1ZlXY9JxjKhDrHmr5_cRH8vQuAe5UGcEs9su5uQjgmF-yV-oH8mfDS9F0OyHFNHwT5U1vqnpXuc2mplNwt4SDPjmRsUkg7o"/>
+</div>
+</div>
+</header>
+<!-- Canvas -->
+<main class="flex-1 p-gutter max-w-container-max mx-auto w-full">
+<!-- Hero Greeting -->
+<div class="mb-xl">
+<h2 class="font-h1 text-h1 text-primary mb-xs">Bienvenido de vuelta, Administrador</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Aquí está el resumen del estado de sus proyectos y familias.</p>
+</div>
+<!-- Quick Metric Cards -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter mb-xl">
+<div class="bg-surface rounded-DEFAULT border border-secondary/30 p-md relative overflow-hidden group hover:border-primary/50 transition-colors">
+<div class="absolute -right-4 -bottom-4 opacity-5 text-primary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-9xl">group</span>
+</div>
+<p class="font-label-caps text-label-caps text-secondary mb-unit">Familias Activas</p>
+<p class="font-h2 text-h2 text-primary">1,248</p>
+<div class="flex items-center gap-xs mt-sm text-primary-tint">
+<span class="material-symbols-outlined text-sm">trending_up</span>
+<span class="text-xs font-medium">+12 este mes</span>
+</div>
+</div>
+<div class="bg-surface rounded-DEFAULT border border-secondary/30 p-md relative overflow-hidden group hover:border-primary/50 transition-colors">
+<div class="absolute -right-4 -bottom-4 opacity-5 text-primary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-9xl">architecture</span>
+</div>
+<p class="font-label-caps text-label-caps text-secondary mb-unit">Proyectos en Curso</p>
+<p class="font-h2 text-h2 text-primary">34</p>
+<div class="flex items-center gap-xs mt-sm text-outline">
+<span class="material-symbols-outlined text-sm">horizontal_rule</span>
+<span class="text-xs font-medium">Sin cambios</span>
+</div>
+</div>
+<div class="bg-surface rounded-DEFAULT border border-secondary/30 p-md relative overflow-hidden group hover:border-primary/50 transition-colors">
+<div class="absolute -right-4 -bottom-4 opacity-5 text-primary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-9xl">analytics</span>
+</div>
+<p class="font-label-caps text-label-caps text-secondary mb-unit">Cumplimiento Técnico</p>
+<p class="font-h2 text-h2 text-primary">98.5%</p>
+<div class="flex items-center gap-xs mt-sm text-primary-tint">
+<span class="material-symbols-outlined text-sm">trending_up</span>
+<span class="text-xs font-medium">+0.5% vs Q1</span>
+</div>
+</div>
+<div class="bg-surface rounded-DEFAULT border border-secondary/30 p-md relative overflow-hidden group hover:border-error/50 transition-colors">
+<div class="absolute -right-4 -bottom-4 opacity-5 text-error group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-9xl">warning</span>
+</div>
+<p class="font-label-caps text-label-caps text-error mb-unit">Próximos Vencimientos</p>
+<p class="font-h2 text-h2 text-error">12</p>
+<div class="flex items-center gap-xs mt-sm text-error">
+<span class="material-symbols-outlined text-sm">schedule</span>
+<span class="text-xs font-medium">En los próximos 7 días</span>
+</div>
+</div>
+</div>
+<!-- Bento Layout: Table & Sidebar -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-gutter">
+<!-- Main Table Area -->
+<div class="lg:col-span-2 bg-surface rounded-DEFAULT border border-secondary/30 flex flex-col">
+<div class="p-md border-b border-secondary/30 flex justify-between items-center bg-surface-container-lowest">
+<h3 class="font-h3 text-h3 text-primary">Proyectos Recientes</h3>
+<button class="font-button text-button text-primary hover:underline flex items-center gap-xs">
+                            Ver todos <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b border-secondary/30 bg-surface-container-lowest">
+<th class="font-label-caps text-label-caps text-secondary px-md py-sm">Proyecto</th>
+<th class="font-label-caps text-label-caps text-secondary px-md py-sm">Comuna</th>
+<th class="font-label-caps text-label-caps text-secondary px-md py-sm">Estado</th>
+<th class="font-label-caps text-label-caps text-secondary px-md py-sm w-1/3">Progreso</th>
+</tr>
+</thead>
+<tbody>
+<tr class="border-b border-secondary/20 hover:bg-surface-container-lowest transition-colors group">
+<td class="px-md py-sm font-medium text-primary">Altos del Valle</td>
+<td class="px-md py-sm text-on-surface-variant">Puente Alto</td>
+<td class="px-md py-sm">
+<span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-bold bg-primary-fixed text-on-primary-fixed">En Construcción</span>
+</td>
+<td class="px-md py-sm">
+<div class="flex items-center gap-sm">
+<div class="flex-1 h-2 bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-primary" style="width: 65%;"></div>
+</div>
+<span class="text-xs font-medium text-primary w-8 text-right">65%</span>
+</div>
+</td>
+</tr>
+<tr class="border-b border-secondary/20 bg-surface-variant/20 hover:bg-surface-container-lowest transition-colors group">
+<td class="px-md py-sm font-medium text-primary">Villa Esperanza II</td>
+<td class="px-md py-sm text-on-surface-variant">San Bernardo</td>
+<td class="px-md py-sm">
+<span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-bold bg-tertiary-fixed text-on-tertiary-fixed">Revisión SERVIU</span>
+</td>
+<td class="px-md py-sm">
+<div class="flex items-center gap-sm">
+<div class="flex-1 h-2 bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-tertiary" style="width: 20%;"></div>
+</div>
+<span class="text-xs font-medium text-tertiary w-8 text-right">20%</span>
+</div>
+</td>
+</tr>
+<tr class="border-b border-secondary/20 hover:bg-surface-container-lowest transition-colors group">
+<td class="px-md py-sm font-medium text-primary">Condominio Los Pinos</td>
+<td class="px-md py-sm text-on-surface-variant">Maipú</td>
+<td class="px-md py-sm">
+<span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-bold bg-secondary-container text-on-secondary-container">Diseño Aprobado</span>
+</td>
+<td class="px-md py-sm">
+<div class="flex items-center gap-sm">
+<div class="flex-1 h-2 bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-secondary" style="width: 45%;"></div>
+</div>
+<span class="text-xs font-medium text-secondary w-8 text-right">45%</span>
+</div>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-lowest transition-colors group bg-surface-variant/20">
+<td class="px-md py-sm font-medium text-primary">Las Araucarias</td>
+<td class="px-md py-sm text-on-surface-variant">La Florida</td>
+<td class="px-md py-sm">
+<span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-bold bg-primary-fixed text-on-primary-fixed">En Construcción</span>
+</td>
+<td class="px-md py-sm">
+<div class="flex items-center gap-sm">
+<div class="flex-1 h-2 bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-primary" style="width: 88%;"></div>
+</div>
+<span class="text-xs font-medium text-primary w-8 text-right">88%</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Sidebar Widget -->
+<div class="bg-surface rounded-DEFAULT border border-secondary/30 flex flex-col">
+<div class="p-md border-b border-secondary/30 bg-surface-container-lowest flex items-center gap-sm">
+<span class="material-symbols-outlined text-error">assignment_late</span>
+<h3 class="font-h3 text-h3 text-primary">Alertas de Seguimiento</h3>
+</div>
+<div class="p-md flex flex-col gap-md">
+<div class="p-sm border border-error/20 bg-error-container/20 rounded-DEFAULT relative pl-10">
+<span class="absolute left-sm top-sm material-symbols-outlined text-error text-xl">file_copy</span>
+<p class="font-bold text-sm text-on-surface mb-xs">Subsidio DS49 - Caduca pronto</p>
+<p class="text-xs text-on-surface-variant mb-sm">Comité 'Unidos por un Sueño' requiere ingresar carpeta técnica.</p>
+<span class="font-label-caps text-label-caps text-error">Vence en 2 días</span>
+</div>
+<div class="p-sm border border-secondary/20 bg-surface-container-lowest rounded-DEFAULT relative pl-10">
+<span class="absolute left-sm top-sm material-symbols-outlined text-secondary text-xl">fact_check</span>
+<p class="font-bold text-sm text-on-surface mb-xs">Observaciones DOM pendientes</p>
+<p class="text-xs text-on-surface-variant mb-sm">Proyecto 'Los Pinos' requiere rectificación planimetría.</p>
+<button class="font-button text-button text-secondary hover:underline">Revisar detalle</button>
+</div>
+<div class="p-sm border border-secondary/20 bg-surface-container-lowest rounded-DEFAULT relative pl-10">
+<span class="absolute left-sm top-sm material-symbols-outlined text-secondary text-xl">groups</span>
+<p class="font-bold text-sm text-on-surface mb-xs">Asamblea Mensual</p>
+<p class="text-xs text-on-surface-variant mb-sm">Agendar reunión con directiva Villa Esperanza II.</p>
+<button class="font-button text-button text-secondary hover:underline">Agendar</button>
+</div>
+</div>
+<div class="mt-auto p-md border-t border-secondary/30 bg-surface-container-lowest">
+<button class="w-full py-sm px-md border border-secondary text-secondary rounded-DEFAULT font-button text-button hover:bg-secondary/5 transition-colors">Ver todas las alertas</button>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

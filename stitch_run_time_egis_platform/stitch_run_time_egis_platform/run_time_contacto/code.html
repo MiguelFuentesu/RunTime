@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+
+<html lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Contacto - RUN TIME</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&amp;family=Fraunces:opsz,wght@9..144,300;400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface-variant": "#414943",
+                        "on-tertiary-fixed-variant": "#6b3839",
+                        "on-primary-container": "#8cbda2",
+                        "on-background": "#1a1c1a",
+                        "surface-container-high": "#e7e9e5",
+                        "secondary-fixed": "#ffdcc4",
+                        "secondary": "#895120",
+                        "primary": "#013623",
+                        "on-primary-fixed-variant": "#204f3a",
+                        "on-error": "#ffffff",
+                        "on-tertiary-container": "#e5a0a0",
+                        "on-error-container": "#93000a",
+                        "tertiary-container": "#683637",
+                        "surface-variant": "#e2e3df",
+                        "error-container": "#ffdad6",
+                        "on-secondary-fixed": "#2f1400",
+                        "on-secondary": "#ffffff",
+                        "on-primary-fixed": "#002113",
+                        "background": "#f9faf6",
+                        "surface": "#f9faf6",
+                        "on-tertiary": "#ffffff",
+                        "primary-fixed-dim": "#a0d2b6",
+                        "on-secondary-container": "#784313",
+                        "tertiary-fixed": "#ffdad9",
+                        "tertiary-fixed-dim": "#fcb4b4",
+                        "surface-container": "#edeeeb",
+                        "inverse-primary": "#a0d2b6",
+                        "surface-container-highest": "#e2e3df",
+                        "primary-container": "#1e4d38",
+                        "on-surface": "#1a1c1a",
+                        "on-tertiary-fixed": "#360e10",
+                        "surface-dim": "#d9dad7",
+                        "outline": "#717973",
+                        "inverse-surface": "#2e312f",
+                        "error": "#ba1a1a",
+                        "primary-fixed": "#bbeed1",
+                        "on-primary": "#ffffff",
+                        "on-secondary-fixed-variant": "#6c3a09",
+                        "surface-tint": "#396751",
+                        "inverse-on-surface": "#f0f1ed",
+                        "secondary-fixed-dim": "#ffb780",
+                        "surface-bright": "#f9faf6",
+                        "outline-variant": "#c0c9c1",
+                        "surface-container-low": "#f3f4f0",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary": "#4d2022",
+                        "secondary-container": "#feb37a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "xxl": "64px",
+                        "xl": "40px",
+                        "gutter": "24px",
+                        "xs": "4px",
+                        "container-max": "1280px",
+                        "md": "16px",
+                        "lg": "24px",
+                        "unit": "4px",
+                        "sm": "8px"
+                    },
+                    "fontFamily": {
+                        "label-caps": ["DM Sans"],
+                        "h1": ["Fraunces"],
+                        "body-lg": ["DM Sans"],
+                        "h3": ["Fraunces"],
+                        "h1-mobile": ["Fraunces"],
+                        "body-md": ["DM Sans"],
+                        "h2": ["Fraunces"],
+                        "button": ["DM Sans"]
+                    },
+                    "fontSize": {
+                        "label-caps": ["12px", { "lineHeight": "1", "letterSpacing": "0.08em", "fontWeight": "700" }],
+                        "h1": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "h3": ["24px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "h1-mobile": ["32px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "h2": ["36px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "button": ["14px", { "lineHeight": "1", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { background-color: theme('colors.background'); color: theme('colors.on-background'); }
+        /* Material Symbols setup */
+        .material-symbols-outlined {
+            font-family: 'Material Symbols Outlined';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-feature-settings: 'liga';
+            -webkit-font-smoothing: antialiased;
+        }
+        /* Grid background pattern */
+        .bg-grid-pattern {
+            background-image: linear-gradient(to right, theme('colors.outline-variant') 1px, transparent 1px),
+                              linear-gradient(to bottom, theme('colors.outline-variant') 1px, transparent 1px);
+            background-size: 24px 24px;
+            opacity: 0.15;
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col font-body-md text-body-md">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-primary border-b border-secondary/30">
+<div class="flex justify-between items-center h-xxl px-lg max-w-container-max mx-auto">
+<!-- Brand Logo -->
+<a class="font-h2 text-h2 font-bold tracking-tight text-on-primary" href="#">RUN TIME</a>
+<!-- Desktop Navigation Links -->
+<div class="hidden md:flex items-center gap-lg">
+<a class="text-on-primary/80 font-label-caps hover:text-secondary-fixed-dim transition-colors duration-200" href="#">Módulos</a>
+<a class="text-on-primary/80 font-label-caps hover:text-secondary-fixed-dim transition-colors duration-200" href="#">Cómo Funciona</a>
+<a class="text-on-primary/80 font-label-caps hover:text-secondary-fixed-dim transition-colors duration-200" href="#">EGIS</a>
+<a class="text-on-primary/80 font-label-caps hover:text-secondary-fixed-dim transition-colors duration-200" href="#">Testimonios</a>
+</div>
+<!-- Actions -->
+<div class="flex items-center gap-md">
+<button class="hidden md:block font-button text-button text-on-primary hover:text-secondary-fixed-dim transition-colors duration-200 scale-95 active:scale-90 transition-transform">Iniciar Sesión</button>
+<button class="font-button text-button bg-on-primary text-primary px-lg py-sm rounded border border-transparent hover:bg-surface-container-high transition-colors duration-200 scale-95 active:scale-90 transition-transform">Solicitar Demo</button>
+</div>
+</div>
+</nav>
+<!-- Header / Hero Area -->
+<header class="pt-[120px] pb-xxl relative bg-surface overflow-hidden border-b border-secondary/30">
+<div class="absolute inset-0 z-0">
+<img alt="Architectural background" class="w-full h-full object-cover opacity-10 mix-blend-luminosity" data-alt="A clean, minimalist 3D wireframe render of a modern urban development and high-rise architecture. The perspective is looking down a wide avenue flanked by grid-like building structures. The color palette is stark white and light gray lines on a pure white background, resembling an architect's blueprint sketch. High-key lighting, technical and precise mood." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD11R9182eJ4f5el1f1OSadwLSu4vHIFqscIgeuS2jE4lvXnNmGV1W5OKWMq0nKB_pBeHY0SOHn2kHLL-FIhoziBxQgTBYr0nhD8_AxmvL1U5Ut1BRFS8BVLHb9hwMRPhbsEaQfn5aKAUOx-o4jF2_98EuQuGIMabcTR182NsHJ533TaHgFzt3hDU4YpZ8oqsAS9RV1ctt_OTB5Iu4SAnOsBbgHNo0Yq9UoiQs5GdowkbeP1ipRH7_tTKz0RoluZwQ_ueJvnVed_5U"/>
+</div>
+<div class="absolute inset-0 z-0 bg-gradient-to-b from-surface/50 to-surface"></div>
+<div class="max-w-container-max mx-auto px-lg relative z-10 grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<div class="col-span-1 md:col-span-8">
+<h1 class="font-h1 text-h1 text-on-background mb-md">Contacto Institucional</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+                    Estamos aquí para apoyar a las Entidades Patrocinantes (EGIS) en la gestión eficiente de proyectos habitacionales. Conéctese con nuestro equipo para asesoría técnica y comercial.
+                </p>
+</div>
+</div>
+</header>
+<!-- Main Content Grid -->
+<main class="flex-grow max-w-container-max w-full mx-auto px-lg py-xxl">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-start">
+<!-- Contact Form Area (Left) -->
+<section class="col-span-1 md:col-span-7 space-y-xl">
+<div class="bg-surface border border-secondary/30 rounded p-xl relative overflow-hidden">
+<div class="absolute inset-0 bg-grid-pattern z-0 pointer-events-none"></div>
+<div class="relative z-10">
+<div class="mb-lg border-b border-secondary/30 pb-sm">
+<h2 class="font-h3 text-h3 text-on-background">Envíenos un mensaje</h2>
+</div>
+<form class="space-y-lg">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-md">
+<!-- Input Field Component -->
+<div class="flex flex-col gap-xs">
+<label class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest">Nombre Completo</label>
+<input class="bg-surface-container-lowest border border-outline-variant focus:border-primary-container focus:ring-1 focus:ring-primary-container rounded px-md py-sm font-body-md text-on-background outline-none transition-colors" placeholder="Ej. Juan Pérez" type="text"/>
+</div>
+<div class="flex flex-col gap-xs">
+<label class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest">Entidad (EGIS)</label>
+<input class="bg-surface-container-lowest border border-outline-variant focus:border-primary-container focus:ring-1 focus:ring-primary-container rounded px-md py-sm font-body-md text-on-background outline-none transition-colors" placeholder="Nombre de su organización" type="text"/>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-md">
+<div class="flex flex-col gap-xs">
+<label class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest">Correo Electrónico</label>
+<input class="bg-surface-container-lowest border border-outline-variant focus:border-primary-container focus:ring-1 focus:ring-primary-container rounded px-md py-sm font-body-md text-on-background outline-none transition-colors" placeholder="correo@entidad.cl" type="email"/>
+</div>
+<div class="flex flex-col gap-xs">
+<label class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest">Teléfono de Contacto</label>
+<input class="bg-surface-container-lowest border border-outline-variant focus:border-primary-container focus:ring-1 focus:ring-primary-container rounded px-md py-sm font-body-md text-on-background outline-none transition-colors" placeholder="+56 9 0000 0000" type="tel"/>
+</div>
+</div>
+<div class="flex flex-col gap-xs">
+<label class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest">Motivo de la consulta</label>
+<select class="bg-surface-container-lowest border border-outline-variant focus:border-primary-container focus:ring-1 focus:ring-primary-container rounded px-md py-sm font-body-md text-on-background outline-none transition-colors appearance-none">
+<option>Solicitud de Demostración</option>
+<option>Soporte Técnico</option>
+<option>Información Comercial</option>
+<option>Otro</option>
+</select>
+</div>
+<div class="flex flex-col gap-xs">
+<label class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest">Mensaje</label>
+<textarea class="bg-surface-container-lowest border border-outline-variant focus:border-primary-container focus:ring-1 focus:ring-primary-container rounded px-md py-sm font-body-md text-on-background outline-none transition-colors resize-none" placeholder="Detalle su requerimiento aquí..." rows="4"></textarea>
+</div>
+<div class="pt-sm flex justify-end">
+<!-- Primary Button -->
+<button class="bg-primary-container text-on-primary font-button text-button px-xl py-sm rounded hover:bg-primary transition-colors flex items-center gap-sm" type="submit">
+<span>Enviar Mensaje</span>
+<span class="material-symbols-outlined text-[18px]">send</span>
+</button>
+</div>
+</form>
+</div>
+</div>
+</section>
+<!-- Information Cards Area (Right) -->
+<aside class="col-span-1 md:col-span-5 space-y-lg">
+<!-- Office Location Card -->
+<div class="bg-surface border border-secondary/30 rounded flex flex-col overflow-hidden">
+<div class="h-48 w-full bg-surface-container relative">
+<img alt="Map location Santiago" class="w-full h-full object-cover mix-blend-multiply opacity-80" data-alt="A stylized, minimalist vector map of Santiago, Chile. The map uses a muted color palette of warm creams, soft grays, and subtle bronze accents to denote roads and topography. A distinct, deep forest green marker pinpoints a central business district location. The overall aesthetic is clean, professional, and architectural." data-location="Santiago, Chile" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDn7GNRhdF8J5HboK0rh6YDya1vm7cfo00cEp-GPJ4EU-Idkwab6QyXEUgeEg8SIjjOCJMaTrRbvI5CaLPuVVhufsfmaiOdzA7rNv38AN2wa6oARpNQFNCaxWtq8jshsRAzeUf70MR3M5Owa5ewWeyAnJHpn9_fPvMHdybT3H0Ur5AGvUF-q5jC1q8EVSZOSM6bKa60q9mqLm9jy7A-5NUoz3a4wcrm2NvCaL7ODx-E8fuzz82lyRzKdL9JXfw7RiFewS4tg5JIt6U"/>
+</div>
+<div class="p-lg flex flex-col gap-sm">
+<div class="flex items-center gap-sm text-primary-container">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">location_on</span>
+<h3 class="font-h3 text-h3 text-on-background">Oficinas Centrales</h3>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mt-sm">
+                            Av. Providencia 1208, Oficina 405<br/>
+                            Providencia, Región Metropolitana<br/>
+                            Chile
+                        </p>
+<div class="mt-md border-t border-secondary/30 pt-sm">
+<a class="font-label-caps text-label-caps text-primary-container hover:text-secondary transition-colors uppercase tracking-widest flex items-center gap-xs" href="#">
+                                Ver en Google Maps
+                                <span class="material-symbols-outlined text-[14px]">arrow_outward</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Support & Direct Contact Card -->
+<div class="bg-surface border border-secondary/30 rounded p-lg flex flex-col gap-md">
+<h3 class="font-h3 text-h3 text-on-background border-b border-secondary/30 pb-sm mb-sm">Canales Directos</h3>
+<div class="flex items-start gap-md">
+<div class="w-10 h-10 rounded bg-surface-container-high flex items-center justify-center flex-shrink-0 text-primary-container">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">headset_mic</span>
+</div>
+<div>
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest block mb-xs">Mesa de Ayuda Técnica</span>
+<a class="font-body-md text-body-md text-primary-container font-medium hover:underline block" href="mailto:soporte@runtime.cl">soporte@runtime.cl</a>
+<a class="font-body-md text-body-md text-on-background block mt-xs" href="tel:+56220000000">+56 2 2000 0000</a>
+</div>
+</div>
+<div class="flex items-start gap-md mt-sm">
+<div class="w-10 h-10 rounded bg-surface-container-high flex items-center justify-center flex-shrink-0 text-primary-container">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">handshake</span>
+</div>
+<div>
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest block mb-xs">Área Comercial</span>
+<a class="font-body-md text-body-md text-primary-container font-medium hover:underline block" href="mailto:comercial@runtime.cl">comercial@runtime.cl</a>
+</div>
+</div>
+</div>
+<!-- Social Proof / Network Card -->
+<div class="bg-surface-container border border-secondary/30 rounded p-lg flex items-center justify-between">
+<div>
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest block mb-xs">Red Profesional</span>
+<span class="font-body-md text-body-md text-on-background font-medium">Síganos en LinkedIn</span>
+</div>
+<a class="w-10 h-10 rounded border border-secondary/30 flex items-center justify-center text-primary-container hover:bg-surface-container-high transition-colors" href="#">
+<span class="material-symbols-outlined">work</span>
+</a>
+</div>
+</aside>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full py-xl border-t border-secondary/30 bg-surface-container">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-lg px-lg max-w-container-max mx-auto">
+<!-- Brand & Copyright -->
+<div class="col-span-1 md:col-span-1 flex flex-col gap-sm">
+<span class="font-h3 text-h3 font-bold text-primary">RUN TIME</span>
+<p class="font-body-md text-body-md text-on-surface-variant">© 2024 RUN TIME. Software para EGIS con Visión Humana. Chile.</p>
+</div>
+<!-- Navigation Links Wrapper to align right on desktop -->
+<div class="col-span-1 md:col-span-3 flex flex-col md:flex-row md:justify-end gap-lg md:gap-xl">
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-secondary transition-colors duration-200 underline-offset-4 hover:underline" href="#">Privacidad</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-secondary transition-colors duration-200 underline-offset-4 hover:underline" href="#">Términos de Servicio</a>
+<a class="font-label-caps text-label-caps text-primary font-bold hover:text-secondary transition-colors duration-200 underline-offset-4 hover:underline" href="#">Contacto</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-secondary transition-colors duration-200 underline-offset-4 hover:underline" href="#">Documentación</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-secondary transition-colors duration-200 underline-offset-4 hover:underline" href="#">Preguntas Frecuentes</a>
+</div>
+</div>
+</footer>
+</body></html>

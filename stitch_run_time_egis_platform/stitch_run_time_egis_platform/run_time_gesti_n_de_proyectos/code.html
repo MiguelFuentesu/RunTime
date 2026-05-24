@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+
+<html lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Seguimiento de Proyectos - RUN TIME</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,100..900&amp;family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-tertiary-fixed": "#360e10",
+                      "on-primary-container": "#8cbda2",
+                      "on-surface": "#1a1c1a",
+                      "on-tertiary-fixed-variant": "#6b3839",
+                      "secondary": "#895120",
+                      "error-container": "#ffdad6",
+                      "inverse-on-surface": "#f0f1ed",
+                      "on-tertiary": "#ffffff",
+                      "on-secondary-container": "#784313",
+                      "surface-variant": "#e2e3df",
+                      "secondary-fixed": "#ffdcc4",
+                      "background": "#f9faf6",
+                      "surface-container-highest": "#e2e3df",
+                      "primary-container": "#1e4d38",
+                      "tertiary-fixed": "#ffdad9",
+                      "primary": "#013623",
+                      "tertiary-container": "#683637",
+                      "on-background": "#1a1c1a",
+                      "surface-container-high": "#e7e9e5",
+                      "surface": "#f9faf6",
+                      "surface-dim": "#d9dad7",
+                      "surface-container-low": "#f3f4f0",
+                      "primary-fixed-dim": "#a0d2b6",
+                      "on-secondary": "#ffffff",
+                      "on-tertiary-container": "#e5a0a0",
+                      "inverse-surface": "#2e312f",
+                      "inverse-primary": "#a0d2b6",
+                      "surface-bright": "#f9faf6",
+                      "surface-tint": "#396751",
+                      "outline-variant": "#c0c9c1",
+                      "error": "#ba1a1a",
+                      "on-primary-fixed-variant": "#204f3a",
+                      "on-surface-variant": "#414943",
+                      "on-primary-fixed": "#002113",
+                      "tertiary": "#4d2022",
+                      "outline": "#717973",
+                      "on-secondary-fixed-variant": "#6c3a09",
+                      "surface-container-lowest": "#ffffff",
+                      "on-primary": "#ffffff",
+                      "secondary-fixed-dim": "#ffb780",
+                      "secondary-container": "#feb37a",
+                      "on-error-container": "#93000a",
+                      "primary-fixed": "#bbeed1",
+                      "on-error": "#ffffff",
+                      "surface-container": "#edeeeb",
+                      "tertiary-fixed-dim": "#fcb4b4",
+                      "on-secondary-fixed": "#2f1400",
+                      "bronze": "#C17F4A"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "unit": "4px",
+                      "sm": "8px",
+                      "gutter": "24px",
+                      "xl": "40px",
+                      "xs": "4px",
+                      "md": "16px",
+                      "lg": "24px",
+                      "container-max": "1280px",
+                      "xxl": "64px"
+              },
+              "fontFamily": {
+                      "h3": [
+                              "Fraunces"
+                      ],
+                      "button": [
+                              "DM Sans"
+                      ],
+                      "body-lg": [
+                              "DM Sans"
+                      ],
+                      "label-caps": [
+                              "DM Sans"
+                      ],
+                      "h1-mobile": [
+                              "Fraunces"
+                      ],
+                      "body-md": [
+                              "DM Sans"
+                      ],
+                      "h1": [
+                              "Fraunces"
+                      ],
+                      "h2": [
+                              "Fraunces"
+                      ]
+              },
+              "fontSize": {
+                      "h3": [
+                              "24px",
+                              {
+                                      "lineHeight": "1.3",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "button": [
+                              "14px",
+                              {
+                                      "lineHeight": "1",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "1.6",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "label-caps": [
+                              "12px",
+                              {
+                                      "lineHeight": "1",
+                                      "letterSpacing": "0.08em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "h1-mobile": [
+                              "32px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "1.5",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "h1": [
+                              "48px",
+                              {
+                                      "lineHeight": "1.1",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "h2": [
+                              "36px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+    </script>
+<style>
+        .blueprint-bg {
+            background-color: #FAF6F0;
+            background-image: linear-gradient(rgba(193, 127, 74, 0.05) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(193, 127, 74, 0.05) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+        .tectonic-border {
+            border: 1px solid rgba(193, 127, 74, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md blueprint-bg antialiased min-h-screen flex">
+<!-- SideNavBar -->
+<nav class="fixed left-0 top-0 h-full w-64 flex flex-col py-lg bg-surface border-r border-outline-variant/30 z-40">
+<div class="px-md mb-xl flex items-center gap-sm">
+<div class="w-10 h-10 rounded-DEFAULT bg-primary flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined">architecture</span>
+</div>
+<div>
+<h1 class="font-h3 text-h3 text-primary tracking-tight">RUN TIME</h1>
+<p class="font-label-caps text-label-caps text-on-surface-variant">Housing Intranet</p>
+</div>
+</div>
+<div class="flex-1 flex flex-col gap-unit px-sm">
+<a class="flex items-center gap-md px-md py-sm rounded-DEFAULT text-on-surface-variant font-medium hover:bg-surface-container-high transition-all duration-200" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded-DEFAULT text-on-surface-variant font-medium hover:bg-surface-container-high transition-all duration-200" href="#">
+<span class="material-symbols-outlined">group</span>
+<span>Clientes/Familias</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded-DEFAULT text-on-surface-variant font-medium hover:bg-surface-container-high transition-all duration-200" href="#">
+<span class="material-symbols-outlined">architecture</span>
+<span>Proyectos</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded-DEFAULT text-primary font-bold bg-primary-fixed/20 border-r-4 border-primary transition-all duration-200 translate-x-1" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span>Seguimiento</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded-DEFAULT text-on-surface-variant font-medium hover:bg-surface-container-high transition-all duration-200" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span>Configuración</span>
+</a>
+</div>
+<div class="px-sm mt-auto">
+<a class="flex items-center gap-md px-md py-sm rounded-DEFAULT text-on-surface-variant font-medium hover:bg-surface-container-high transition-all duration-200" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span>Cerrar Sesión</span>
+</a>
+</div>
+</nav>
+<!-- Main Content Area -->
+<div class="flex-1 ml-64 flex flex-col min-h-screen">
+<!-- TopAppBar -->
+<header class="sticky top-0 w-full z-30 flex items-center justify-between px-lg h-20 bg-surface/90 backdrop-blur-md border-b border-outline-variant/30">
+<div class="flex items-center gap-md">
+<h2 class="font-h2 text-h2 text-primary">Seguimiento de Proyectos Habitacionales</h2>
+</div>
+<div class="flex items-center gap-md">
+<div class="relative hidden md:block">
+<span class="material-symbols-outlined absolute left-sm top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="pl-xl pr-sm py-xs rounded-DEFAULT border-outline-variant/30 bg-surface-container-lowest focus:border-primary focus:ring-1 focus:ring-primary/20 text-body-md text-on-surface w-64" placeholder="Buscar..." type="text"/>
+</div>
+<button class="w-10 h-10 rounded-full flex items-center justify-center text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="w-10 h-10 rounded-full flex items-center justify-center text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined">help_outline</span>
+</button>
+<div class="w-10 h-10 rounded-full bg-surface-variant overflow-hidden tectonic-border ml-sm">
+<img alt="Administrator Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8rtwSJLOKzyoVUcekmJtn-XwofT0azic8npwLEmAUPakMnQ7yiJpPFKz6wfe0nJRHCVWJhWvAX5uG6oFBJSXwBjduIMV0KqAu72EM-xXC6pvHp3KKWxhZBaadEECzpUcXRJ0zjUhDGBM4AX0Nm2-YY396e_KL3CrcakicT1pFcJppf7Ak1QBlSNbfLIPz5lt4HWv7jd0IacDsrkuKrDaPJ15_42I1SuelmG0XfaH9BQAz6NQt-uYSBaMYFMqS9NCp69ZkcAUi-Bg"/>
+</div>
+</div>
+</header>
+<!-- Dashboard Canvas -->
+<main class="flex-1 p-gutter max-w-container-max mx-auto w-full">
+<!-- Bento Grid Layout for Project Tracking -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Project Highlight (Main Card) -->
+<div class="md:col-span-8 bg-surface rounded-lg tectonic-border overflow-hidden flex flex-col relative">
+<div class="p-lg border-b border-outline-variant/30 flex justify-between items-start bg-surface-container-lowest">
+<div>
+<span class="font-label-caps text-label-caps text-secondary uppercase tracking-widest mb-unit inline-block">Proyecto Principal</span>
+<h3 class="font-h3 text-h3 text-primary">Conjunto Habitacional 'Los Alerces'</h3>
+<p class="text-body-md text-on-surface-variant flex items-center gap-xs mt-xs">
+<span class="material-symbols-outlined text-[18px]">location_on</span>
+                                Comuna de Maipú, Región Metropolitana
+                            </p>
+</div>
+<div class="text-right">
+<span class="font-h2 text-h2 text-primary block">68%</span>
+<span class="font-label-caps text-label-caps text-outline">Avance Total</span>
+</div>
+</div>
+<div class="p-lg flex-1 relative bg-surface-bright">
+<!-- Tectonic Stepper -->
+<div class="relative pt-xl pb-lg px-md">
+<!-- Background Line -->
+<div class="absolute top-[48px] left-[10%] right-[10%] h-px bg-bronze/30"></div>
+<div class="flex justify-between relative z-10">
+<!-- Step 1: Completed -->
+<div class="flex flex-col items-center gap-sm">
+<div class="w-6 h-6 rounded-full bg-primary flex items-center justify-center shadow-[0_0_0_4px_#FAF6F0]">
+<span class="material-symbols-outlined text-[14px] text-on-primary">check</span>
+</div>
+<span class="font-label-caps text-label-caps text-on-surface text-center w-24">Postulación</span>
+</div>
+<!-- Step 2: Completed -->
+<div class="flex flex-col items-center gap-sm">
+<div class="w-6 h-6 rounded-full bg-primary flex items-center justify-center shadow-[0_0_0_4px_#FAF6F0]">
+<span class="material-symbols-outlined text-[14px] text-on-primary">check</span>
+</div>
+<span class="font-label-caps text-label-caps text-on-surface text-center w-24">Aprobación SERVIU</span>
+</div>
+<!-- Step 3: Current -->
+<div class="flex flex-col items-center gap-sm">
+<div class="w-6 h-6 rounded-full border-2 border-primary bg-surface flex items-center justify-center shadow-[0_0_0_4px_#FAF6F0]">
+<div class="w-2 h-2 rounded-full bg-secondary"></div>
+</div>
+<span class="font-label-caps text-label-caps text-primary font-bold text-center w-24">En Construcción</span>
+</div>
+<!-- Step 4: Future -->
+<div class="flex flex-col items-center gap-sm">
+<div class="w-6 h-6 rounded-full bg-surface-variant flex items-center justify-center shadow-[0_0_0_4px_#FAF6F0] border border-outline-variant/50">
+</div>
+<span class="font-label-caps text-label-caps text-outline text-center w-24">Entrega</span>
+</div>
+</div>
+</div>
+<div class="mt-lg grid grid-cols-2 gap-md">
+<div class="bg-surface-container-low p-md rounded-DEFAULT border border-outline-variant/20">
+<span class="font-label-caps text-label-caps text-outline block mb-xs">Supervisor Técnico</span>
+<div class="flex items-center gap-sm">
+<div class="w-8 h-8 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center font-bold text-sm">
+                                        MR
+                                    </div>
+<span class="font-body-md text-on-surface font-medium">Miguel Rojas V.</span>
+</div>
+</div>
+<div class="bg-surface-container-low p-md rounded-DEFAULT border border-outline-variant/20">
+<span class="font-label-caps text-label-caps text-outline block mb-xs">Próximo Hito</span>
+<span class="font-body-md text-on-surface font-medium flex items-center gap-xs">
+<span class="material-symbols-outlined text-[18px] text-secondary">event</span>
+                                    Revisión Obra Gruesa (15 Oct)
+                                </span>
+</div>
+</div>
+</div>
+</div>
+<!-- Secondary Projects List -->
+<div class="md:col-span-4 bg-surface rounded-lg tectonic-border flex flex-col">
+<div class="p-md border-b border-outline-variant/30 bg-surface-container-lowest flex justify-between items-center">
+<h3 class="font-h3 text-h3 text-primary text-[20px]">Portafolio Activo</h3>
+<button class="text-secondary hover:text-primary transition-colors">
+<span class="material-symbols-outlined">filter_list</span>
+</button>
+</div>
+<div class="flex-1 overflow-y-auto p-xs">
+<!-- List Item 1 -->
+<div class="p-md hover:bg-surface-container-low cursor-pointer transition-colors border-b border-outline-variant/20 last:border-0 group">
+<div class="flex justify-between items-start mb-unit">
+<h4 class="font-body-md font-bold text-on-surface group-hover:text-primary transition-colors">Villa El Sol II</h4>
+<span class="bg-surface-container-high px-2 py-1 rounded text-[10px] font-label-caps text-on-surface-variant border border-outline-variant/30">Postulación</span>
+</div>
+<p class="text-[14px] text-on-surface-variant flex items-center gap-xs mb-sm">
+<span class="material-symbols-outlined text-[14px]">location_on</span> San Bernardo
+                            </p>
+<div class="flex justify-between items-center mt-sm">
+<div class="w-full bg-surface-variant h-1.5 rounded-full overflow-hidden mr-md">
+<div class="bg-primary h-full w-[15%]"></div>
+</div>
+<span class="font-label-caps text-label-caps text-primary">15%</span>
+</div>
+</div>
+<!-- List Item 2 -->
+<div class="p-md hover:bg-surface-container-low cursor-pointer transition-colors border-b border-outline-variant/20 last:border-0 group">
+<div class="flex justify-between items-start mb-unit">
+<h4 class="font-body-md font-bold text-on-surface group-hover:text-primary transition-colors">Altos de Renca</h4>
+<span class="bg-primary-fixed px-2 py-1 rounded text-[10px] font-label-caps text-on-primary-fixed border border-primary-fixed-dim">Aprobación</span>
+</div>
+<p class="text-[14px] text-on-surface-variant flex items-center gap-xs mb-sm">
+<span class="material-symbols-outlined text-[14px]">location_on</span> Renca
+                            </p>
+<div class="flex justify-between items-center mt-sm">
+<div class="w-full bg-surface-variant h-1.5 rounded-full overflow-hidden mr-md">
+<div class="bg-primary h-full w-[45%]"></div>
+</div>
+<span class="font-label-caps text-label-caps text-primary">45%</span>
+</div>
+</div>
+<!-- List Item 3 -->
+<div class="p-md hover:bg-surface-container-low cursor-pointer transition-colors border-b border-outline-variant/20 last:border-0 group">
+<div class="flex justify-between items-start mb-unit">
+<h4 class="font-body-md font-bold text-on-surface group-hover:text-primary transition-colors">Condominio Pacífico</h4>
+<span class="bg-secondary-container px-2 py-1 rounded text-[10px] font-label-caps text-on-secondary-container border border-secondary">Entrega</span>
+</div>
+<p class="text-[14px] text-on-surface-variant flex items-center gap-xs mb-sm">
+<span class="material-symbols-outlined text-[14px]">location_on</span> Valparaíso
+                            </p>
+<div class="flex justify-between items-center mt-sm">
+<div class="w-full bg-surface-variant h-1.5 rounded-full overflow-hidden mr-md">
+<div class="bg-secondary h-full w-[95%]"></div>
+</div>
+<span class="font-label-caps text-label-caps text-secondary">95%</span>
+</div>
+</div>
+</div>
+<div class="p-md border-t border-outline-variant/30 text-center">
+<button class="font-button text-button text-primary hover:underline">Ver todos los proyectos</button>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

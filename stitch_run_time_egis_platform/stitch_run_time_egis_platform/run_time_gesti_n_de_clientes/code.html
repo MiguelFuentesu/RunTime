@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Gestión de Clientes - RUN TIME</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&amp;family=Fraunces:opsz,wght@9..144,400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-fixed": "#360e10",
+                        "on-primary-container": "#8cbda2",
+                        "on-surface": "#1a1c1a",
+                        "on-tertiary-fixed-variant": "#6b3839",
+                        "secondary": "#895120",
+                        "error-container": "#ffdad6",
+                        "inverse-on-surface": "#f0f1ed",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-container": "#784313",
+                        "surface-variant": "#e2e3df",
+                        "secondary-fixed": "#ffdcc4",
+                        "background": "#f9faf6",
+                        "surface-container-highest": "#e2e3df",
+                        "primary-container": "#1e4d38",
+                        "tertiary-fixed": "#ffdad9",
+                        "primary": "#013623",
+                        "tertiary-container": "#683637",
+                        "on-background": "#1a1c1a",
+                        "surface-container-high": "#e7e9e5",
+                        "surface": "#f9faf6",
+                        "surface-dim": "#d9dad7",
+                        "surface-container-low": "#f3f4f0",
+                        "primary-fixed-dim": "#a0d2b6",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary-container": "#e5a0a0",
+                        "inverse-surface": "#2e312f",
+                        "inverse-primary": "#a0d2b6",
+                        "surface-bright": "#f9faf6",
+                        "surface-tint": "#396751",
+                        "outline-variant": "#c0c9c1",
+                        "error": "#ba1a1a",
+                        "on-primary-fixed-variant": "#204f3a",
+                        "on-surface-variant": "#414943",
+                        "on-primary-fixed": "#002113",
+                        "tertiary": "#4d2022",
+                        "outline": "#717973",
+                        "on-secondary-fixed-variant": "#6c3a09",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "secondary-fixed-dim": "#ffb780",
+                        "secondary-container": "#feb37a",
+                        "on-error-container": "#93000a",
+                        "primary-fixed": "#bbeed1",
+                        "on-error": "#ffffff",
+                        "surface-container": "#edeeeb",
+                        "tertiary-fixed-dim": "#fcb4b4",
+                        "on-secondary-fixed": "#2f1400"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "unit": "4px",
+                        "sm": "8px",
+                        "gutter": "24px",
+                        "xl": "40px",
+                        "xs": "4px",
+                        "md": "16px",
+                        "lg": "24px",
+                        "container-max": "1280px",
+                        "xxl": "64px"
+                    },
+                    "fontFamily": {
+                        "h3": ["Fraunces"],
+                        "button": ["DM Sans"],
+                        "body-lg": ["DM Sans"],
+                        "label-caps": ["DM Sans"],
+                        "h1-mobile": ["Fraunces"],
+                        "body-md": ["DM Sans"],
+                        "h1": ["Fraunces"],
+                        "h2": ["Fraunces"]
+                    },
+                    "fontSize": {
+                        "h3": ["24px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "button": ["14px", { "lineHeight": "1", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "label-caps": ["12px", { "lineHeight": "1", "letterSpacing": "0.08em", "fontWeight": "700" }],
+                        "h1-mobile": ["32px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "h1": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "h2": ["36px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .architectural-bg {
+            background-image: 
+                linear-gradient(to right, rgba(193, 127, 74, 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(193, 127, 74, 0.05) 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md antialiased architectural-bg min-h-screen">
+<!-- SideNavBar -->
+<nav class="fixed left-0 top-0 h-full w-64 flex flex-col py-lg bg-surface dark:bg-surface-dim border-r border-outline-variant/30 z-40">
+<div class="px-lg mb-xl">
+<h1 class="font-h3 text-h3 text-primary dark:text-primary-fixed-dim tracking-tight">RUN TIME</h1>
+<p class="font-body-md text-on-surface-variant text-sm mt-1">Housing Intranet</p>
+</div>
+<div class="flex-1 overflow-y-auto px-md">
+<ul class="space-y-sm">
+<li>
+<a class="flex items-center gap-md px-md py-3 rounded text-on-surface-variant font-medium hover:bg-surface-container-high transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+                        Dashboard
+                    </a>
+</li>
+<li>
+<a class="flex items-center gap-md px-md py-3 rounded text-primary font-bold bg-primary-fixed/20 border-r-4 border-primary hover:bg-surface-container-high transition-all duration-200 translate-x-1" href="#">
+<span class="material-symbols-outlined" data-icon="group" data-weight="fill" style="font-variation-settings: 'FILL' 1;">group</span>
+                        Clientes/Familias
+                    </a>
+</li>
+<li>
+<a class="flex items-center gap-md px-md py-3 rounded text-on-surface-variant font-medium hover:bg-surface-container-high transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="architecture">architecture</span>
+                        Proyectos
+                    </a>
+</li>
+<li>
+<a class="flex items-center gap-md px-md py-3 rounded text-on-surface-variant font-medium hover:bg-surface-container-high transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+                        Seguimiento
+                    </a>
+</li>
+<li>
+<a class="flex items-center gap-md px-md py-3 rounded text-on-surface-variant font-medium hover:bg-surface-container-high transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+                        Configuración
+                    </a>
+</li>
+</ul>
+</div>
+<div class="px-md mt-auto pt-lg border-t border-outline-variant/30">
+<a class="flex items-center gap-md px-md py-3 rounded text-on-surface-variant font-medium hover:bg-surface-container-high transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+                Cerrar Sesión
+            </a>
+</div>
+</nav>
+<!-- TopAppBar -->
+<header class="sticky top-0 w-full z-30 flex items-center justify-between px-lg h-20 ml-64 max-w-[calc(100%-16rem)] bg-surface/90 backdrop-blur-md dark:bg-surface-dim/90 border-b border-outline-variant/30">
+<div class="flex items-center gap-md">
+<!-- Search implicitly on left as per JSON -->
+</div>
+<div class="flex items-center gap-lg">
+<button class="text-on-surface-variant hover:text-primary transition-colors cursor-pointer focus:ring-1 focus:ring-primary/20 focus:outline-none rounded-full p-2">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-colors cursor-pointer focus:ring-1 focus:ring-primary/20 focus:outline-none rounded-full p-2">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+</button>
+<div class="h-8 w-8 rounded-full bg-surface-container-high border border-outline-variant/50 overflow-hidden ml-md">
+<img alt="Administrator Profile" class="w-full h-full object-cover" data-alt="A professional headshot of a mature administrator, softly lit against a neutral architectural background. The lighting is bright and clean, emphasizing a modern corporate aesthetic suitable for a housing management intranet." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZIyMxgZs-r3FRUnjFPH01a9LjCUVzJPvrIUVdKUz98zEh8DgsjvAFfz97d-Cy7rt2MchVaXVnY6tW0ArNvZqIDHWffLm7IGSvo4mazexdT-rNNPK5kymvO8XeTanlSO2PpvDeEc0vf9l6SDbjyh0PwCeBbzNKgjthlTSLx0HRm1sQbdBe_jRZqFsZkGp0mXpjrWxagW99LINKWmFYd95MsNH4hH3bntf_jgekVhCH0xpaUiuUq1Pfri83uQ0tLdMzU22zNkDXFJ0"/>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-64 p-lg max-w-container-max">
+<!-- Page Header & Actions -->
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-xl gap-lg">
+<div>
+<h2 class="font-h2 text-h2 text-on-surface mb-sm">Gestión de Familias y Clientes</h2>
+<p class="text-on-surface-variant font-body-md">Administración del portafolio de postulantes y seguimiento de estado.</p>
+</div>
+<button class="bg-primary-container text-on-primary-container font-button text-button px-lg py-3 rounded flex items-center gap-sm hover:bg-surface-tint transition-colors focus:ring-2 focus:ring-primary/30">
+<span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+                Añadir Nueva Familia
+            </button>
+</div>
+<!-- Filter & Search Bar (Level 1 Sub-surface) -->
+<div class="bg-surface-container-lowest border border-outline-variant/30 rounded p-md mb-lg flex flex-col md:flex-row gap-md items-end">
+<div class="flex-1 w-full">
+<label class="block font-label-caps text-label-caps text-on-surface-variant mb-xs">BÚSQUEDA GENERAL</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="w-full bg-surface pl-10 pr-4 py-2 border border-surface-variant rounded focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors text-body-md placeholder:text-outline-variant" placeholder="Buscar por RUT, Nombre o Proyecto..." type="text"/>
+</div>
+</div>
+<div class="w-full md:w-64">
+<label class="block font-label-caps text-label-caps text-on-surface-variant mb-xs">ESTADO DE POSTULACIÓN</label>
+<select class="w-full bg-surface px-4 py-2 border border-surface-variant rounded focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors text-body-md text-on-surface appearance-none">
+<option value="">Todos los estados</option>
+<option value="aprobado">Aprobado</option>
+<option value="pendiente">Pendiente</option>
+<option value="observado">Observado</option>
+</select>
+</div>
+<button class="px-md py-2 border border-secondary text-secondary font-button text-button rounded hover:bg-secondary/5 transition-colors h-[42px]">
+                Limpiar Filtros
+            </button>
+</div>
+<!-- Data Table (Architectural List Style) -->
+<div class="bg-surface-container-lowest border border-[#C17F4A]/30 rounded overflow-hidden">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b border-[#C17F4A]/30 bg-surface-container-low">
+<th class="px-md py-4 font-label-caps text-label-caps text-on-surface-variant w-1/4">REPRESENTANTE</th>
+<th class="px-md py-4 font-label-caps text-label-caps text-on-surface-variant">RUT</th>
+<th class="px-md py-4 font-label-caps text-label-caps text-on-surface-variant text-center">INTEGRANTES</th>
+<th class="px-md py-4 font-label-caps text-label-caps text-on-surface-variant w-1/4">PROYECTO ASIGNADO</th>
+<th class="px-md py-4 font-label-caps text-label-caps text-on-surface-variant">ESTADO</th>
+<th class="px-md py-4 font-label-caps text-label-caps text-on-surface-variant text-right">ACCIONES</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-[#C17F4A]/20">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container-high/50 transition-colors group">
+<td class="px-md py-4">
+<div class="font-bold text-on-surface">María González Silva</div>
+<div class="text-sm text-on-surface-variant mt-1">Jefa de Hogar</div>
+</td>
+<td class="px-md py-4 font-mono text-sm text-on-surface-variant">12.345.678-9</td>
+<td class="px-md py-4 text-center text-on-surface">4</td>
+<td class="px-md py-4">
+<span class="text-on-surface">Valle del Sol, Etapa II</span>
+</td>
+<td class="px-md py-4">
+<span class="inline-flex items-center gap-xs px-2 py-1 rounded bg-primary-fixed/30 text-on-primary-fixed text-sm font-medium border border-primary/20">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+                                Aprobado
+                            </span>
+</td>
+<td class="px-md py-4 text-right">
+<button class="text-secondary hover:text-secondary-container p-1 rounded transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="bg-[#E5E1DA]/20 hover:bg-surface-container-high/50 transition-colors group">
+<td class="px-md py-4">
+<div class="font-bold text-on-surface">Juan Pérez Muñoz</div>
+<div class="text-sm text-on-surface-variant mt-1">Postulante Principal</div>
+</td>
+<td class="px-md py-4 font-mono text-sm text-on-surface-variant">15.987.654-3</td>
+<td class="px-md py-4 text-center text-on-surface">2</td>
+<td class="px-md py-4">
+<span class="text-on-surface">Brisas del Sur</span>
+</td>
+<td class="px-md py-4">
+<span class="inline-flex items-center gap-xs px-2 py-1 rounded bg-surface-variant text-on-surface-variant text-sm font-medium border border-outline-variant">
+<span class="w-2 h-2 rounded-full bg-outline"></span>
+                                Pendiente
+                            </span>
+</td>
+<td class="px-md py-4 text-right">
+<button class="text-secondary hover:text-secondary-container p-1 rounded transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container-high/50 transition-colors group">
+<td class="px-md py-4">
+<div class="font-bold text-on-surface">Ana Soto Rojas</div>
+<div class="text-sm text-on-surface-variant mt-1">Jefa de Hogar</div>
+</td>
+<td class="px-md py-4 font-mono text-sm text-on-surface-variant">18.765.432-1</td>
+<td class="px-md py-4 text-center text-on-surface">5</td>
+<td class="px-md py-4">
+<span class="text-on-surface">Altos de la Colina</span>
+</td>
+<td class="px-md py-4">
+<span class="inline-flex items-center gap-xs px-2 py-1 rounded bg-error-container text-on-error-container text-sm font-medium border border-error/20">
+<span class="w-2 h-2 rounded-full bg-error"></span>
+                                Observado
+                            </span>
+</td>
+<td class="px-md py-4 text-right">
+<button class="text-secondary hover:text-secondary-container p-1 rounded transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+<!-- Pagination Footer -->
+<div class="border-t border-[#C17F4A]/30 px-md py-3 bg-surface flex items-center justify-between">
+<span class="text-sm text-on-surface-variant">Mostrando 1 a 3 de 156 familias</span>
+<div class="flex gap-1">
+<button class="p-1 border border-surface-variant rounded text-on-surface-variant hover:bg-surface-container-low disabled:opacity-50" disabled="">
+<span class="material-symbols-outlined text-sm">chevron_left</span>
+</button>
+<button class="px-3 py-1 bg-surface-container-high rounded text-sm font-medium text-on-surface">1</button>
+<button class="px-3 py-1 hover:bg-surface-container-low rounded text-sm font-medium text-on-surface-variant">2</button>
+<button class="px-3 py-1 hover:bg-surface-container-low rounded text-sm font-medium text-on-surface-variant">3</button>
+<button class="p-1 border border-surface-variant rounded text-on-surface-variant hover:bg-surface-container-low">
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+</body></html>

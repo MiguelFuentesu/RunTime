@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+
+<html lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Centro de Documentación y Seguimiento - RUN TIME</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;600;700&amp;family=Fraunces:opsz,wght@9..144,600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-fixed": "#360e10",
+                        "on-primary-container": "#8cbda2",
+                        "on-surface": "#1a1c1a",
+                        "on-tertiary-fixed-variant": "#6b3839",
+                        "secondary": "#895120",
+                        "error-container": "#ffdad6",
+                        "inverse-on-surface": "#f0f1ed",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-container": "#784313",
+                        "surface-variant": "#e2e3df",
+                        "secondary-fixed": "#ffdcc4",
+                        "background": "#f9faf6",
+                        "surface-container-highest": "#e2e3df",
+                        "primary-container": "#1e4d38",
+                        "tertiary-fixed": "#ffdad9",
+                        "primary": "#013623",
+                        "tertiary-container": "#683637",
+                        "on-background": "#1a1c1a",
+                        "surface-container-high": "#e7e9e5",
+                        "surface": "#f9faf6",
+                        "surface-dim": "#d9dad7",
+                        "surface-container-low": "#f3f4f0",
+                        "primary-fixed-dim": "#a0d2b6",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary-container": "#e5a0a0",
+                        "inverse-surface": "#2e312f",
+                        "inverse-primary": "#a0d2b6",
+                        "surface-bright": "#f9faf6",
+                        "surface-tint": "#396751",
+                        "outline-variant": "#c0c9c1",
+                        "error": "#ba1a1a",
+                        "on-primary-fixed-variant": "#204f3a",
+                        "on-surface-variant": "#414943",
+                        "on-primary-fixed": "#002113",
+                        "tertiary": "#4d2022",
+                        "outline": "#717973",
+                        "on-secondary-fixed-variant": "#6c3a09",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "secondary-fixed-dim": "#ffb780",
+                        "secondary-container": "#feb37a",
+                        "on-error-container": "#93000a",
+                        "primary-fixed": "#bbeed1",
+                        "on-error": "#ffffff",
+                        "surface-container": "#edeeeb",
+                        "tertiary-fixed-dim": "#fcb4b4",
+                        "on-secondary-fixed": "#2f1400"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "unit": "4px",
+                        "sm": "8px",
+                        "gutter": "24px",
+                        "xl": "40px",
+                        "xs": "4px",
+                        "md": "16px",
+                        "lg": "24px",
+                        "container-max": "1280px",
+                        "xxl": "64px"
+                    },
+                    "fontFamily": {
+                        "h3": ["Fraunces"],
+                        "button": ["DM Sans"],
+                        "body-lg": ["DM Sans"],
+                        "label-caps": ["DM Sans"],
+                        "h1-mobile": ["Fraunces"],
+                        "body-md": ["DM Sans"],
+                        "h1": ["Fraunces"],
+                        "h2": ["Fraunces"]
+                    },
+                    "fontSize": {
+                        "h3": ["24px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "button": ["14px", { "lineHeight": "1", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "label-caps": ["12px", { "lineHeight": "1", "letterSpacing": "0.08em", "fontWeight": "700" }],
+                        "h1-mobile": ["32px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "h1": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "h2": ["36px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600" }]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .texture-bg {
+            background-image: url('data:image/svg+xml;utf8,<svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><circle cx="2" cy="2" r="1" fill="%23c0c9c1" fill-opacity="0.2"/></svg>');
+        }
+        .architectural-bg {
+            background-image: linear-gradient(to right, rgba(192, 201, 193, 0.1) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(192, 201, 193, 0.1) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md antialiased architectural-bg">
+<!-- SideNavBar -->
+<nav class="fixed left-0 top-0 h-full w-64 flex flex-col py-lg bg-surface dark:bg-surface-dim border-r border-outline-variant/30 flat no shadows z-40 hidden md:flex">
+<div class="px-gutter mb-xl flex items-center gap-sm">
+<div class="w-10 h-10 rounded bg-primary-container flex items-center justify-center text-on-primary-container font-h3">E</div>
+<div>
+<h1 class="font-h3 text-h3 text-primary dark:text-primary-fixed-dim tracking-tight">RUN TIME</h1>
+<p class="font-label-caps text-label-caps text-on-surface-variant">Housing Intranet</p>
+</div>
+</div>
+<div class="flex-1 overflow-y-auto">
+<ul class="flex flex-col space-y-unit px-sm">
+<li>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant dark:text-on-surface-variant font-medium hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-all duration-200" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-body-md">Dashboard</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant dark:text-on-surface-variant font-medium hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-all duration-200" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="font-body-md">Clientes/Familias</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant dark:text-on-surface-variant font-medium hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-all duration-200" href="#">
+<span class="material-symbols-outlined">architecture</span>
+<span class="font-body-md">Proyectos</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-primary dark:text-primary-fixed-dim font-bold bg-primary-fixed/20 border-r-4 border-primary Active: translate-x-1 transition-transform" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">analytics</span>
+<span class="font-body-md">Seguimiento</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant dark:text-on-surface-variant font-medium hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-all duration-200" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-body-md">Configuración</span>
+</a>
+</li>
+</ul>
+</div>
+<div class="mt-auto px-sm">
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-all duration-200" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-body-md">Cerrar Sesión</span>
+</a>
+</div>
+</nav>
+<!-- TopAppBar -->
+<header class="sticky top-0 w-full z-30 flex items-center justify-between px-lg h-20 md:ml-64 md:max-w-[calc(100%-16rem)] bg-surface/90 backdrop-blur-md dark:bg-surface-dim/90 border-b border-outline-variant/30 flat no shadows">
+<div class="flex items-center gap-md">
+<button class="md:hidden text-on-surface-variant p-sm hover:bg-surface-container rounded-full">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<h2 class="font-h2 text-h2 text-primary dark:text-inverse-primary hidden md:block">Centro de Documentación y Seguimiento</h2>
+<h2 class="font-h3 text-h3 text-primary md:hidden">Seguimiento</h2>
+</div>
+<div class="flex items-center gap-lg">
+<div class="relative hidden sm:block w-64">
+<span class="material-symbols-outlined absolute left-sm top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="w-full bg-surface-container-low border border-outline-variant text-on-surface font-body-md rounded pl-xl pr-sm py-sm focus:border-primary focus:ring-1 focus:ring-primary/20 outline-none transition-colors" placeholder="Buscar documentos..." type="text"/>
+</div>
+<div class="flex items-center gap-sm">
+<button class="text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim cursor-pointer p-sm rounded-full hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim cursor-pointer p-sm rounded-full hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined">help_outline</span>
+</button>
+<img alt="Administrator Profile" class="w-8 h-8 rounded-full border border-outline-variant" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDh2NLRC0QY8P6A20QL9qVLjvrUFmvA65AIdnwsjP2T6ilG5XBZLTi8ZU71ONngnHfjfoPyvDQtiec4vVPin89O5YKZ4bIkSt8YOEGK2VSpEJqyxHu1Mz50tOpE1KgV78go5rbBgIeejfXN6xol2Lh3hvUKrMeEYVuGNAVq6XmbCQsmHaq1DGsmN_KgSQ-Qln9Af1FEd4qUoXip_7Go0n2uEPZtFfE-KnfAeTnnOgCC2Qlmd5AzuJTv50lSKcocM9wSeHiOvHIg_X8"/>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="md:ml-64 p-md md:p-gutter max-w-container-max mx-auto min-h-[calc(100vh-5rem)]">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Bento Grid: File Repository UI -->
+<div class="lg:col-span-8 space-y-gutter">
+<section>
+<div class="flex items-center justify-between mb-md">
+<h3 class="font-h3 text-h3 text-primary">Repositorio Documental</h3>
+<button class="font-button text-button text-primary flex items-center gap-xs hover:underline decoration-1 underline-offset-4">
+                            Ver todos
+                            <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-md">
+<!-- Folder Card 1 -->
+<div class="bg-surface border border-secondary/30 rounded-lg p-lg hover:shadow-sm transition-shadow group cursor-pointer relative overflow-hidden">
+<div class="absolute -right-6 -bottom-6 opacity-5 group-hover:opacity-10 transition-opacity">
+<span class="material-symbols-outlined text-[120px] text-primary">folder_open</span>
+</div>
+<div class="w-10 h-10 rounded bg-primary-container/10 flex items-center justify-center text-primary mb-md">
+<span class="material-symbols-outlined">gavel</span>
+</div>
+<h4 class="font-h3 text-[18px] text-on-surface mb-xs">Normativas Vigentes</h4>
+<p class="font-body-md text-sm text-on-surface-variant mb-md">124 Archivos • Actualizado hoy</p>
+<div class="border-t border-secondary/20 pt-sm flex justify-between items-center">
+<span class="font-label-caps text-label-caps text-secondary">LEGAL</span>
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors">arrow_outward</span>
+</div>
+</div>
+<!-- Folder Card 2 -->
+<div class="bg-surface border border-secondary/30 rounded-lg p-lg hover:shadow-sm transition-shadow group cursor-pointer relative overflow-hidden">
+<div class="absolute -right-6 -bottom-6 opacity-5 group-hover:opacity-10 transition-opacity">
+<span class="material-symbols-outlined text-[120px] text-primary">folder_open</span>
+</div>
+<div class="w-10 h-10 rounded bg-primary-container/10 flex items-center justify-center text-primary mb-md">
+<span class="material-symbols-outlined">domain</span>
+</div>
+<h4 class="font-h3 text-[18px] text-on-surface mb-xs">Resoluciones SERVIU</h4>
+<p class="font-body-md text-sm text-on-surface-variant mb-md">86 Archivos • Hace 2 días</p>
+<div class="border-t border-secondary/20 pt-sm flex justify-between items-center">
+<span class="font-label-caps text-label-caps text-secondary">OFICIAL</span>
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors">arrow_outward</span>
+</div>
+</div>
+<!-- Folder Card 3 -->
+<div class="bg-surface border border-secondary/30 rounded-lg p-lg hover:shadow-sm transition-shadow group cursor-pointer relative overflow-hidden">
+<div class="absolute -right-6 -bottom-6 opacity-5 group-hover:opacity-10 transition-opacity">
+<span class="material-symbols-outlined text-[120px] text-primary">folder_open</span>
+</div>
+<div class="w-10 h-10 rounded bg-primary-container/10 flex items-center justify-center text-primary mb-md">
+<span class="material-symbols-outlined">contract</span>
+</div>
+<h4 class="font-h3 text-[18px] text-on-surface mb-xs">Contratos Honorarios</h4>
+<p class="font-body-md text-sm text-on-surface-variant mb-md">42 Archivos • Hace 1 semana</p>
+<div class="border-t border-secondary/20 pt-sm flex justify-between items-center">
+<span class="font-label-caps text-label-caps text-secondary">INTERNO</span>
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors">arrow_outward</span>
+</div>
+</div>
+</div>
+</section>
+<section>
+<h3 class="font-h3 text-h3 text-primary mb-md">Actividad Reciente</h3>
+<div class="bg-surface border border-secondary/30 rounded-lg overflow-hidden">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b border-secondary/30 bg-surface-container-low">
+<th class="py-sm px-md font-label-caps text-label-caps text-on-surface-variant">Documento</th>
+<th class="py-sm px-md font-label-caps text-label-caps text-on-surface-variant">Categoría</th>
+<th class="py-sm px-md font-label-caps text-label-caps text-on-surface-variant">Fecha</th>
+<th class="py-sm px-md font-label-caps text-label-caps text-on-surface-variant text-right">Acciones</th>
+</tr>
+</thead>
+<tbody>
+<tr class="border-b border-secondary/20 hover:bg-surface-container-highest/20 transition-colors">
+<td class="py-md px-md">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-error">picture_as_pdf</span>
+<span class="font-body-md text-on-surface font-medium">Resolución_Exenta_1042.pdf</span>
+</div>
+</td>
+<td class="py-md px-md text-sm text-on-surface-variant">Resoluciones SERVIU</td>
+<td class="py-md px-md text-sm text-on-surface-variant">12 Oct 2023</td>
+<td class="py-md px-md text-right">
+<div class="flex items-center justify-end gap-sm">
+<button class="text-primary hover:text-primary-container transition-colors" title="Ver Historial">
+<span class="material-symbols-outlined">history</span>
+</button>
+<button class="font-button text-button text-primary bg-transparent border border-secondary rounded px-sm py-xs hover:bg-surface-container-high transition-colors">
+                                                    Descargar
+                                                </button>
+</div>
+</td>
+</tr>
+<tr class="border-b border-secondary/20 hover:bg-surface-container-highest/20 transition-colors bg-surface-container-highest/10">
+<td class="py-md px-md">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary-container">description</span>
+<span class="font-body-md text-on-surface font-medium">Contrato_Arq_Silva_V2.docx</span>
+</div>
+</td>
+<td class="py-md px-md text-sm text-on-surface-variant">Contratos Honorarios</td>
+<td class="py-md px-md text-sm text-on-surface-variant">10 Oct 2023</td>
+<td class="py-md px-md text-right">
+<div class="flex items-center justify-end gap-sm">
+<button class="text-primary hover:text-primary-container transition-colors" title="Ver Historial">
+<span class="material-symbols-outlined">history</span>
+</button>
+<button class="font-button text-button text-primary bg-transparent border border-secondary rounded px-sm py-xs hover:bg-surface-container-high transition-colors">
+                                                    Descargar
+                                                </button>
+</div>
+</td>
+</tr>
+<tr class="border-b border-secondary/20 hover:bg-surface-container-highest/20 transition-colors">
+<td class="py-md px-md">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-error">picture_as_pdf</span>
+<span class="font-body-md text-on-surface font-medium">Normativa_DS49_Mod_2023.pdf</span>
+</div>
+</td>
+<td class="py-md px-md text-sm text-on-surface-variant">Normativas Vigentes</td>
+<td class="py-md px-md text-sm text-on-surface-variant">05 Oct 2023</td>
+<td class="py-md px-md text-right">
+<div class="flex items-center justify-end gap-sm">
+<button class="text-primary hover:text-primary-container transition-colors" title="Ver Historial">
+<span class="material-symbols-outlined">history</span>
+</button>
+<button class="font-button text-button text-primary bg-transparent border border-secondary rounded px-sm py-xs hover:bg-surface-container-high transition-colors">
+                                                    Descargar
+                                                </button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+</div>
+<!-- Right Sidebar: Metrics & Tectonic Stepper -->
+<div class="lg:col-span-4 space-y-gutter">
+<div class="bg-surface border border-secondary/30 rounded-lg p-lg relative overflow-hidden texture-bg">
+<h3 class="font-h3 text-h3 text-primary mb-md">Estado de Cumplimiento Reglamentario</h3>
+<div class="flex items-end gap-sm mb-lg">
+<span class="font-h1 text-h1 text-primary">85</span>
+<span class="font-h3 text-h3 text-on-surface-variant mb-1">%</span>
+</div>
+<div class="space-y-md">
+<div>
+<div class="flex justify-between font-label-caps text-label-caps mb-xs">
+<span class="text-on-surface-variant">Transparencia Activa</span>
+<span class="text-primary">100%</span>
+</div>
+<div class="h-2 w-full bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-primary" style="width: 100%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between font-label-caps text-label-caps mb-xs">
+<span class="text-on-surface-variant">Reportes SERVIU</span>
+<span class="text-primary">75%</span>
+</div>
+<div class="h-2 w-full bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-primary" style="width: 75%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between font-label-caps text-label-caps mb-xs">
+<span class="text-on-surface-variant">Auditoría Interna</span>
+<span class="text-secondary">60%</span>
+</div>
+<div class="h-2 w-full bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-secondary" style="width: 60%"></div>
+</div>
+</div>
+</div>
+<div class="mt-lg pt-sm border-t border-secondary/30">
+<p class="font-body-md text-sm text-on-surface-variant">Última evaluación: 01 Oct 2023. Próximo hito de control en 15 días.</p>
+</div>
+</div>
+<div class="bg-surface border border-secondary/30 rounded-lg p-lg">
+<h3 class="font-h3 text-[20px] text-primary mb-md">Auditoría en Curso</h3>
+<!-- Tectonic Stepper -->
+<div class="relative mt-sm ml-sm">
+<!-- Vertical line -->
+<div class="absolute left-[7px] top-2 bottom-2 w-[2px] bg-secondary/30"></div>
+<div class="space-y-lg relative">
+<!-- Step 1: Completed -->
+<div class="flex items-start gap-md">
+<div class="w-4 h-4 rounded-full bg-primary z-10 mt-1 ring-4 ring-surface"></div>
+<div>
+<h4 class="font-button text-button text-on-surface">Revisión Documental</h4>
+<p class="font-body-md text-sm text-on-surface-variant">Aprobado el 10 Oct</p>
+</div>
+</div>
+<!-- Step 2: Current -->
+<div class="flex items-start gap-md">
+<div class="w-4 h-4 rounded-full border-2 border-primary bg-secondary z-10 mt-1 ring-4 ring-surface"></div>
+<div>
+<h4 class="font-button text-button text-primary font-bold">Evaluación en Terreno</h4>
+<p class="font-body-md text-sm text-on-surface-variant">En progreso</p>
+</div>
+</div>
+<!-- Step 3: Future -->
+<div class="flex items-start gap-md">
+<div class="w-4 h-4 rounded-full bg-surface-variant border border-outline z-10 mt-1 ring-4 ring-surface"></div>
+<div>
+<h4 class="font-button text-button text-on-surface-variant">Emisión de Informe</h4>
+<p class="font-body-md text-sm text-on-surface-variant">Pendiente</p>
+</div>
+</div>
+</div>
+</div>
+<button class="w-full mt-lg font-button text-button bg-primary text-on-primary py-sm px-md rounded hover:bg-primary-container transition-colors">
+                        Ver Detalles Auditoría
+                    </button>
+</div>
+</div>
+</div>
+</main>
+</body></html>
